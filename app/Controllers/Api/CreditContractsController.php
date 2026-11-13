@@ -1,0 +1,2437 @@
+<?php
+
+namespace App\Controllers\Api;
+
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\Database\BaseConnection;
+use CodeIgniter\HTTP\ResponseInterface;
+use Throwable;
+
+class CreditContractsController extends ResourceController
+{
+    protected $format = 'json';
+
+    private BaseConnection $db;
+    private ?array $authenticatedUser = null;
+
+    private const VAT_RATE = 0.15;
+    private const WITHHOLDING_RATE = 0.03;
+    private const ROYALTY_RATE = 0.03;
+
+    public function __construct()
+    {
+        $this->db = \Config\Database::connect();
+    }
+
+    /* ============================================================
+     * AUTHENTICATION AND AUTHORIZATION
+     * ============================================================ */
+
+    private function authenticate(): ?ResponseInterface
+    {
+        $header = trim(
+            $this->request->getHeaderLine('Authorization')
+        );
+
+        if (!preg_match('/^Bearer\s+(.+)$/i', $header, $matches)) {
+            return $this->failUnauthorized(
+                'A valid bearer token is required.'
+            );
+        }
+
+        $tokenHash = hash('sha256', trim($matches[1]));
+
+        $session = $this->db->table('user_sessions')
+            ->where('token_hash', $tokenHash)
+            ->where('revoked_at', null)
+            ->where('expires_at >', date('Y-m-d H:i:s'))
+            ->get()
+            ->getRowArray();
+
+        if (!$session) {
+            return $this->failUnauthorized(
+                'Your session is invalid or expired.'
+            );
+        }
+
+        $user = $this->db->table('users')
+            ->where('id', $session['user_id'])
+            ->get()
+            ->getRowArray();
+
+        if (
+            !$user ||
+            strtolower(trim((string) ($user['account_status'] ?? '')))
+                !== 'active'
+        ) {
+            return $this->failUnauthorized(
+                'This account is unavailable.'
+            );
+        }
+
+        $this->authenticatedUser = $user;
+
+        $this->db->table('user_sessions')
+            ->where('id', $session['id'])
+            ->update([
+                'last_used_at' => date('Y-m-d H:i:s'),
+            ]);
+
+        return null;
+    }
+
+    private function actorId(): string
+    {
+        return (string) ($this->authenticatedUser['id'] ?? '');
+    }
+
+    private function role(): string
+    {
+        return strtoupper(trim(
+            (string) ($this->authenticatedUser['role'] ?? '')
+        ));
+    }
+
+    private function isFinance(): bool
+    {
+        return in_array(
+            $this->role(),
+            ['FINANCE', 'FINANCE_MANAGER'],
+            true
+        );
+    }
+
+    private function isSales(): bool
+    {
+        return in_array(
+            $this->role(),
+            ['SALES', 'SALES_MANAGER'],
+            true
+        );
+    }
+
+    private function requireFinance(): ?ResponseInterface
+    {
+        if (!$this->isFinance()) {
+            return $this->failForbidden(
+                'Only Finance users can perform this action.'
+            );
+        }
+
+        return null;
+    }
+
+    private function requireSalesOrFinance(): ?ResponseInterface
+    {
+        if (!$this->isSales() && !$this->isFinance()) {
+            return $this->failForbidden(
+                'You are not authorized to perform this action.'
+            );
+        }
+
+        return null;
+    }
+
+    /* ============================================================
+     * GENERAL HELPERS
+     * ============================================================ */
+
+    private function input(): array
+    {
+        $data = $this->request->getJSON(true);
+
+        if (!is_array($data)) {
+            $data = $this->request->getPost();
+        }
+
+        return is_array($data) ? $data : [];
+    }
+
+    private function uuid(): string
+    {
+        $bytes = random_bytes(16);
+
+        $bytes[6] = chr((ord($bytes[6]) & 0x0f) | 0x40);
+        $bytes[8] = chr((ord($bytes[8]) & 0x3f) | 0x80);
+
+        $hex = bin2hex($bytes);
+
+        return sprintf(
+            '%s-%s-%s-%s-%s',
+            substr($hex, 0, 8),
+            substr($hex, 8, 4),
+            substr($hex, 12, 4),
+            substr($hex, 16, 4),
+            substr($hex, 20, 12)
+        );
+    }
+
+    private function validUuid($value): bool
+    {
+        return is_string($value) && preg_match(
+            '/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',
+            $value
+        ) === 1;
+    }
+
+    private function amount($value): ?float
+    {
+        if (!is_numeric($value)) {
+            return null;
+        }
+
+        $number = (float) $value;
+
+        if (!is_finite($number) || $number < 0) {
+            return null;
+        }
+
+        return round($number, 2);
+    }
+
+    private function toDate($value): ?string
+    {
+        if (!is_string($value) || trim($value) === '') {
+            return null;
+        }
+
+        $date = \DateTime::createFromFormat('!Y-m-d', $value);
+
+        if (!$date || $date->format('Y-m-d') !== $value) {
+            return null;
+        }
+
+        return $value;
+    }
+
+    private function jsonValue($value): array
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+
+            return is_array($decoded) ? $decoded : [];
+        }
+
+        return is_array($value) ? $value : [];
+    }
+
+    private function attachmentId($evidence): ?string
+    {
+        if (!is_array($evidence)) {
+            return null;
+        }
+
+        $id = $evidence['id'] ?? null;
+
+        if (!$this->validUuid($id)) {
+            return null;
+        }
+
+        $exists = $this->db->table('attachments')
+            ->where('id', $id)
+            ->countAllResults();
+
+        return $exists > 0 ? $id : null;
+    }
+
+    private function attachmentDetails($id): ?array
+    {
+        if (!$this->validUuid($id)) {
+            return null;
+        }
+
+        $row = $this->db->table('attachments')
+            ->select('id, file_name, mime_type, file_size')
+            ->where('id', $id)
+            ->get()
+            ->getRowArray();
+
+        if (!$row) {
+            return null;
+        }
+
+        return [
+            'id' => $row['id'],
+            'fileName' => $row['file_name'],
+            'fileUrl' => '',
+            'mimeType' => $row['mime_type'],
+            'fileSize' => (int) $row['file_size'],
+        ];
+    }
+
+    private function attachmentMimeAllowed($id): bool
+    {
+        $attachment = $this->attachmentDetails($id);
+
+        if (!$attachment) {
+            return false;
+        }
+
+        return in_array(
+            strtolower((string) $attachment['mimeType']),
+            [
+                'application/pdf',
+                'image/jpeg',
+                'image/png',
+            ],
+            true
+        );
+    }
+
+    private function logError(string $message, Throwable $e): void
+    {
+        log_message('error', $message . ': ' . $e->getMessage());
+    }
+
+    /* ============================================================
+     * CONTRACT LOOKUP AND MAPPING
+     * ============================================================ */
+
+    private function findContract(string $id, bool $lock = false): ?array
+    {
+        if (!$this->validUuid($id)) {
+            return null;
+        }
+
+        $sql = 'SELECT * FROM credit_contracts WHERE id = ?';
+
+        if ($lock) {
+            $sql .= ' FOR UPDATE';
+        }
+
+        return $this->db->query($sql, [$id])->getRowArray() ?: null;
+    }
+
+    private function getOrders(string $contractId): array
+    {
+        $rows = $this->db->table('credit_contract_orders')
+            ->where('contract_id', $contractId)
+            ->orderBy('order_number', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        $orders = [];
+
+        foreach ($rows as $row) {
+            $orders[] = $this->mapOrder($row);
+        }
+
+        return $orders;
+    }
+
+    private function mapOrder(array $row): array
+    {
+        $completedBy = $row['completed_by'];
+
+        return [
+            'id' => $row['id'],
+            'creditContractId' => $row['contract_id'],
+            'orderNumber' => (int) $row['order_number'],
+            'aggregate' => $row['aggregate'],
+            'quantity' => (float) $row['quantity'],
+            'unit' => $row['unit'],
+            'unitPrice' => (float) $row['unit_price'],
+            'lineTotalExclVat' => (float) $row['line_total_excl_vat'],
+            'lineTotalInclVat' => round(
+                (float) $row['line_total_excl_vat'] *
+                (1 + self::VAT_RATE),
+                2
+            ),
+            'royaltyInvoiceNumber' => $row['royalty_invoice_number'],
+            'orderDate' => $row['order_date'],
+            'status' => $row['status'],
+            'completedByUserId' => $completedBy,
+            'completedByName' => $completedBy,
+            'completedByEmail' => '',
+            'lastEditedByUserId' => $row['last_edited_by'],
+            'editedAt' => $row['edited_at'],
+            'cancelledBy' => $row['cancelled_by'],
+            'cancelledAt' => $row['cancelled_at'],
+            'cancellationReason' => $row['cancellation_reason'],
+            'createdAt' => $row['created_at'],
+            'updatedAt' => $row['updated_at'],
+        ];
+    }
+
+    private function mapContract(array $row, bool $includeOrders = false): array
+    {
+        $invoice = $this->db->table('sales_invoices')
+            ->where('credit_contract_id', $row['id'])
+            ->get()
+            ->getRowArray();
+
+        $attachments = $this->jsonValue(
+            $row['attachments'] ?? []
+        );
+
+        $result = [
+            'id' => $row['id'],
+            'contractNumber' => $row['contract_number'],
+            'customer' => [
+                'name' => $row['customer_name'],
+                'tin' => $row['customer_tin'],
+            ],
+            'contractValue' => (float) $row['contract_value'],
+            'fsNo' => $row['fs_no'] ?? '',
+            'contractDate' => $row['contract_date'],
+            'attachments' => $attachments,
+            'remark' => $row['remark'],
+            'status' => $row['status'],
+            'createdBy' => $row['created_by'],
+            'activatedBy' => $row['activated_by'],
+            'activatedAt' => $row['activated_at'],
+            'finalizedBy' => $row['finalized_by'],
+            'finalizedAt' => $row['finalized_at'],
+            'finalizationReason' => $row['finalization_reason'],
+            'cancelledBy' => $row['cancelled_by'],
+            'cancelledAt' => $row['cancelled_at'],
+            'cancellationReason' => $row['cancellation_reason'],
+            'closedBelowValue' => (
+                $invoice !== null &&
+                (float) $row['contract_value'] >
+                $this->fulfilledValue($row['id'])
+            ),
+            'salesInvoiceId' => $invoice['id'] ?? null,
+            'salesInvoiceNumber' => $invoice['invoice_number'] ?? null,
+            'createdAt' => $row['created_at'],
+            'updatedAt' => $row['updated_at'],
+            'version' => (int) ($row['version'] ?? 1),
+        ];
+
+        if ($includeOrders) {
+            $result['orders'] = $this->getOrders($row['id']);
+        }
+
+        return $result;
+    }
+
+    private function fulfilledValue(string $contractId): float
+    {
+        $row = $this->db->query(
+            "SELECT COALESCE(
+                SUM(line_total_excl_vat), 0
+            ) AS subtotal
+            FROM credit_contract_orders
+            WHERE contract_id = ?
+              AND status = 'COMPLETED'",
+            [$contractId]
+        )->getRowArray();
+
+        return round(
+            (float) ($row['subtotal'] ?? 0) *
+            (1 + self::VAT_RATE),
+            2
+        );
+    }
+
+    private function nextOrderNumber(string $contractId): int
+    {
+        $row = $this->db->query(
+            'SELECT COALESCE(MAX(order_number), 0) + 1 AS next_number
+             FROM credit_contract_orders
+             WHERE contract_id = ?',
+            [$contractId]
+        )->getRowArray();
+
+        return (int) ($row['next_number'] ?? 1);
+    }
+
+    /* ============================================================
+     * AUDIT HELPERS
+     * ============================================================ */
+
+    private function addStatusHistory(
+        string $contractId,
+        ?string $previous,
+        string $next,
+        string $action,
+        ?string $reason = null
+    ): void {
+        $this->db->table('credit_contract_status_history')->insert([
+            'id' => $this->uuid(),
+            'contract_id' => $contractId,
+            'previous_status' => $previous,
+            'new_status' => $next,
+            'action' => $action,
+            'reason' => $reason,
+            'actor_id' => $this->actorId(),
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+    }
+
+    private function addFinancialHistory(
+        string $contractId,
+        string $action,
+        ?string $note = null,
+        ?array $oldValues = null,
+        ?array $newValues = null
+    ): void {
+        $this->db->table('credit_contract_financial_history')->insert([
+            'id' => $this->uuid(),
+            'contract_id' => $contractId,
+            'action' => $action,
+            'note' => $note,
+            'old_values' => $oldValues === null
+                ? null
+                : json_encode($oldValues),
+            'new_values' => $newValues === null
+                ? null
+                : json_encode($newValues),
+            'actor_id' => $this->actorId(),
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+    }
+
+    /* ============================================================
+     * GET /api/credit-contracts
+     * ============================================================ */
+
+    public function index()
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if (!$this->isFinance() && !$this->isSales()) {
+            return $this->failForbidden(
+                'You are not authorized to view credit contracts.'
+            );
+        }
+
+        try {
+            $builder = $this->db->table('credit_contracts');
+
+            // Sales users see active contracts only.
+            if (!$this->isFinance()) {
+                $builder->where('status', 'ACTIVE');
+            }
+
+            $rows = $builder
+                ->orderBy('created_at', 'DESC')
+                ->get()
+                ->getResultArray();
+
+            $data = [];
+
+            foreach ($rows as $row) {
+                $data[] = $this->mapContract($row);
+            }
+
+            return $this->respond([
+                'success' => true,
+                'data' => $data,
+            ]);
+        } catch (Throwable $e) {
+            $this->logError('Credit contract list failed', $e);
+
+            return $this->failServerError(
+                'Unable to retrieve credit contracts.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * GET /api/credit-contracts/{id}
+     * ============================================================ */
+
+    public function show($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        try {
+            $contract = $this->findContract((string) $id);
+
+            if (!$contract) {
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if (
+                !$this->isFinance() &&
+                $contract['status'] !== 'ACTIVE'
+            ) {
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            return $this->respond([
+                'success' => true,
+                'data' => $this->mapContract($contract, true),
+            ]);
+        } catch (Throwable $e) {
+            $this->logError('Credit contract show failed', $e);
+
+            return $this->failServerError(
+                'Unable to retrieve credit contract.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts
+     * Finance creates a draft.
+     * ============================================================ */
+
+    public function create()
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $customerName = trim((string) ($input['customerName'] ?? ''));
+        $tin = trim((string) ($input['tin'] ?? ''));
+
+        $contractValue = $this->amount(
+            $input['contractValue'] ?? null
+        );
+
+        $contractDate = $this->toDate(
+            $input['contractDate'] ?? null
+        );
+
+        if ($customerName === '' || $tin === '') {
+            return $this->failValidationErrors(
+                'Customer name and TIN are required.'
+            );
+        }
+
+        if ($contractValue === null || $contractValue <= 0) {
+            return $this->failValidationErrors(
+                'Contract value must be greater than zero.'
+            );
+        }
+
+        if ($contractDate === null) {
+            return $this->failValidationErrors(
+                'A valid contract date is required.'
+            );
+        }
+
+        $attachments = $input['attachments'] ?? [];
+
+        if (!is_array($attachments)) {
+            return $this->failValidationErrors(
+                'Attachments must be an array.'
+            );
+        }
+
+        foreach ($attachments as $attachment) {
+            if (
+                !is_array($attachment) ||
+                !$this->attachmentMimeAllowed(
+                    $attachment['id'] ?? null
+                )
+            ) {
+                return $this->failValidationErrors(
+                    'A contract attachment is invalid or unsupported.'
+                );
+            }
+        }
+
+        $now = date('Y-m-d H:i:s');
+
+        $this->db->transBegin();
+
+        try {
+            $id = $this->uuid();
+
+            $this->db->table('credit_contracts')->insert([
+                'id' => $id,
+                'customer_name' => $customerName,
+                'customer_tin' => $tin,
+                'contract_value' => $contractValue,
+                'fs_no' => trim((string) ($input['fsNo'] ?? '')) ?: null,
+                'contract_date' => $contractDate,
+                'remark' => trim((string) ($input['remark'] ?? '')) ?: null,
+                'attachments' => json_encode($attachments),
+                'status' => 'DRAFT',
+                'created_by' => $this->actorId(),
+                'created_at' => $now,
+                'updated_at' => $now,
+                'version' => 1,
+            ]);
+
+            $this->addStatusHistory(
+                $id,
+                null,
+                'DRAFT',
+                'CREATED',
+                'Credit contract created.'
+            );
+
+            if ($this->db->transStatus() === false) {
+                throw new \RuntimeException(
+                    'Credit contract creation failed.'
+                );
+            }
+
+            $this->db->transCommit();
+
+            $created = $this->findContract($id);
+
+            return $this->respondCreated([
+                'success' => true,
+                'message' => 'Credit contract created successfully.',
+                'data' => $this->mapContract($created),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract create failed', $e);
+
+            return $this->failServerError(
+                'Unable to create credit contract.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * PUT /api/credit-contracts/{id}
+     * Draft only.
+     * ============================================================ */
+
+    public function update($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] !== 'DRAFT') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Only draft credit contracts can be edited.',
+                    409
+                );
+            }
+
+            $customerName = trim(
+                (string) ($input['customerName'] ?? '')
+            );
+
+            $tin = trim((string) ($input['tin'] ?? ''));
+
+            $contractValue = $this->amount(
+                $input['contractValue'] ?? null
+            );
+
+            $contractDate = $this->toDate(
+                $input['contractDate'] ?? null
+            );
+
+            if (
+                $customerName === '' ||
+                $tin === '' ||
+                $contractValue === null ||
+                $contractValue <= 0 ||
+                $contractDate === null
+            ) {
+                $this->db->transRollback();
+
+                return $this->failValidationErrors(
+                    'Customer name, TIN, valid contract value and contract date are required.'
+                );
+            }
+
+            $attachments = $input['attachments']
+                ?? $this->jsonValue($contract['attachments'] ?? []);
+
+            if (!is_array($attachments)) {
+                $this->db->transRollback();
+
+                return $this->failValidationErrors(
+                    'Attachments must be an array.'
+                );
+            }
+
+            foreach ($attachments as $attachment) {
+                if (
+                    !is_array($attachment) ||
+                    !$this->attachmentMimeAllowed(
+                        $attachment['id'] ?? null
+                    )
+                ) {
+                    $this->db->transRollback();
+
+                    return $this->failValidationErrors(
+                        'A contract attachment is invalid or unsupported.'
+                    );
+                }
+            }
+
+            $this->db->table('credit_contracts')
+                ->where('id', $id)
+                ->update([
+                    'customer_name' => $customerName,
+                    'customer_tin' => $tin,
+                    'contract_value' => $contractValue,
+                    'fs_no' => trim((string) ($input['fsNo'] ?? '')) ?: null,
+                    'contract_date' => $contractDate,
+                    'remark' => trim((string) ($input['remark'] ?? '')) ?: null,
+                    'attachments' => json_encode($attachments),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'version' => ((int) $contract['version']) + 1,
+                ]);
+
+            if ($this->db->transStatus() === false) {
+                throw new \RuntimeException(
+                    'Credit contract update failed.'
+                );
+            }
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract updated successfully.',
+                'data' => $this->mapContract(
+                    $this->findContract((string) $id)
+                ),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract update failed', $e);
+
+            return $this->failServerError(
+                'Unable to update credit contract.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts/{id}/activate
+     * ============================================================ */
+
+    public function activate($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] !== 'DRAFT') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Only draft credit contracts can be activated.',
+                    409
+                );
+            }
+
+            $now = date('Y-m-d H:i:s');
+
+            $this->db->table('credit_contracts')
+                ->where('id', $id)
+                ->where('status', 'DRAFT')
+                ->update([
+                    'status' => 'ACTIVE',
+                    'activated_by' => $this->actorId(),
+                    'activated_at' => $now,
+                    'updated_at' => $now,
+                    'version' => ((int) $contract['version']) + 1,
+                ]);
+
+            if ($this->db->affectedRows() !== 1) {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Contract status changed. Refresh and try again.',
+                    409
+                );
+            }
+
+            $this->addStatusHistory(
+                (string) $id,
+                'DRAFT',
+                'ACTIVE',
+                'ACTIVATED'
+            );
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract activated successfully.',
+                'data' => $this->mapContract(
+                    $this->findContract((string) $id)
+                ),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract activation failed', $e);
+
+            return $this->failServerError(
+                'Unable to activate credit contract.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts/{id}/cancel
+     * ============================================================ */
+
+    public function cancel($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $reason = trim((string) ($this->input()['reason'] ?? ''));
+
+        if ($reason === '') {
+            return $this->failValidationErrors(
+                'A cancellation reason is required.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] === 'INVOICED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'An invoiced credit contract cannot be cancelled.',
+                    409
+                );
+            }
+
+            if ($contract['status'] === 'CANCELLED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'This credit contract is already cancelled.',
+                    409
+                );
+            }
+
+            $previous = $contract['status'];
+            $now = date('Y-m-d H:i:s');
+
+            $this->db->table('credit_contracts')
+                ->where('id', $id)
+                ->update([
+                    'status' => 'CANCELLED',
+                    'cancelled_by' => $this->actorId(),
+                    'cancelled_at' => $now,
+                    'cancellation_reason' => $reason,
+                    'updated_at' => $now,
+                    'version' => ((int) $contract['version']) + 1,
+                ]);
+
+            $this->addStatusHistory(
+                (string) $id,
+                $previous,
+                'CANCELLED',
+                'CANCELLED',
+                $reason
+            );
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract cancelled.',
+                'data' => $this->mapContract(
+                    $this->findContract((string) $id)
+                ),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract cancellation failed', $e);
+
+            return $this->failServerError(
+                'Unable to cancel credit contract.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * GET /api/credit-contracts/{id}/orders
+     * ============================================================ */
+
+    public function orders($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $contract = $this->findContract((string) $id);
+
+        if (!$contract) {
+            return $this->failNotFound(
+                'Credit contract not found.'
+            );
+        }
+
+        if (
+            !$this->isFinance() &&
+            $contract['status'] !== 'ACTIVE'
+        ) {
+            return $this->failNotFound(
+                'Credit contract not found.'
+            );
+        }
+
+        return $this->respond([
+            'success' => true,
+            'data' => $this->getOrders((string) $id),
+        ]);
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts/{id}/orders
+     * ============================================================ */
+
+    public function createOrder($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $quantity = is_numeric($input['quantity'] ?? null)
+            ? (float) $input['quantity']
+            : 0;
+
+        $unitPrice = $this->amount(
+            $input['unitPrice'] ?? null
+        );
+
+        $aggregate = trim((string) ($input['aggregate'] ?? ''));
+        $orderDate = $this->toDate($input['orderDate'] ?? null);
+
+        if (
+            !in_array($aggregate, ['00', '01', '02'], true) ||
+            !is_finite($quantity) ||
+            $quantity <= 0 ||
+            $unitPrice === null ||
+            $orderDate === null
+        ) {
+            return $this->failValidationErrors(
+                'Aggregate, positive quantity, valid unit price and order date are required.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            // Lock the parent row so simultaneous users receive unique order numbers.
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] !== 'ACTIVE') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Orders can only be added to active credit contracts.',
+                    409
+                );
+            }
+
+            $orderId = $this->uuid();
+            $orderNumber = $this->nextOrderNumber((string) $id);
+            $lineTotal = round($quantity * $unitPrice, 2);
+            $now = date('Y-m-d H:i:s');
+
+            $this->db->table('credit_contract_orders')->insert([
+                'id' => $orderId,
+                'contract_id' => $id,
+                'order_number' => $orderNumber,
+                'aggregate' => $aggregate,
+                'quantity' => $quantity,
+                'unit' => trim((string) ($input['unit'] ?? 'm³')) ?: 'm³',
+                'unit_price' => $unitPrice,
+                'line_total_excl_vat' => $lineTotal,
+                'royalty_invoice_number' =>
+                    trim((string) ($input['royaltyInvoiceNumber'] ?? '')) ?: null,
+                'order_date' => $orderDate,
+                'status' => 'COMPLETED',
+                'completed_by' => $this->actorId(),
+                'royalty_source_key' => 'credit-contract-order:' . $orderId,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+
+            $this->db->table('credit_contract_order_history')->insert([
+                'id' => $this->uuid(),
+                'contract_id' => $id,
+                'order_id' => $orderId,
+                'action' => 'ORDER_COMPLETED',
+                'old_values' => null,
+                'new_values' => json_encode([
+                    'orderNumber' => $orderNumber,
+                    'aggregate' => $aggregate,
+                    'quantity' => $quantity,
+                    'unitPrice' => $unitPrice,
+                    'lineTotalExclVat' => $lineTotal,
+                ]),
+                'actor_id' => $this->actorId(),
+                'created_at' => $now,
+            ]);
+
+            if ($this->db->transStatus() === false) {
+                throw new \RuntimeException(
+                    'Unable to save credit contract order.'
+                );
+            }
+
+            $this->db->transCommit();
+
+            $row = $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->get()
+                ->getRowArray();
+
+            return $this->respondCreated([
+                'success' => true,
+                'message' => 'Credit contract order added.',
+                'data' => $this->mapOrder($row),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract order create failed', $e);
+
+            return $this->failServerError(
+                'Unable to add credit contract order.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * PUT /api/credit-contracts/{id}/orders/{orderId}
+     * Completing salesperson or Finance.
+     * ============================================================ */
+
+    public function updateOrder($id = null, $orderId = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] === 'INVOICED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Orders cannot be edited after invoicing.',
+                    409
+                );
+            }
+
+            $order = $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            if (!$order) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract order not found.'
+                );
+            }
+
+            if ($order['status'] !== 'COMPLETED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Only completed orders can be edited.',
+                    409
+                );
+            }
+
+            if (
+                !$this->isFinance() &&
+                $order['completed_by'] !== $this->actorId()
+            ) {
+                $this->db->transRollback();
+
+                return $this->failForbidden(
+                    'Only the salesperson who completed this order or Finance can edit it.'
+                );
+            }
+
+            $quantity = is_numeric($input['quantity'] ?? null)
+                ? (float) $input['quantity']
+                : 0;
+
+            $unitPrice = $this->amount(
+                $input['unitPrice'] ?? null
+            );
+
+            $aggregate = trim(
+                (string) ($input['aggregate'] ?? '')
+            );
+
+            $orderDate = $this->toDate(
+                $input['orderDate'] ?? null
+            );
+
+            if (
+                !in_array($aggregate, ['00', '01', '02'], true) ||
+                !is_finite($quantity) ||
+                $quantity <= 0 ||
+                $unitPrice === null ||
+                $orderDate === null
+            ) {
+                $this->db->transRollback();
+
+                return $this->failValidationErrors(
+                    'Aggregate, positive quantity, valid unit price and order date are required.'
+                );
+            }
+
+            $lineTotal = round($quantity * $unitPrice, 2);
+            $now = date('Y-m-d H:i:s');
+
+            $oldValues = [
+                'aggregate' => $order['aggregate'],
+                'quantity' => (float) $order['quantity'],
+                'unitPrice' => (float) $order['unit_price'],
+                'orderDate' => $order['order_date'],
+            ];
+
+            $newValues = [
+                'aggregate' => $aggregate,
+                'quantity' => $quantity,
+                'unitPrice' => $unitPrice,
+                'orderDate' => $orderDate,
+            ];
+
+            $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->update([
+                    'aggregate' => $aggregate,
+                    'quantity' => $quantity,
+                    'unit' => trim((string) ($input['unit'] ?? $order['unit'])) ?: 'm³',
+                    'unit_price' => $unitPrice,
+                    'line_total_excl_vat' => $lineTotal,
+                    'royalty_invoice_number' =>
+                        trim((string) ($input['royaltyInvoiceNumber'] ?? '')) ?: null,
+                    'order_date' => $orderDate,
+                    // completed_by is intentionally never changed.
+                    'last_edited_by' => $this->actorId(),
+                    'edited_at' => $now,
+                    'updated_at' => $now,
+                ]);
+
+            $this->db->table('credit_contract_order_history')->insert([
+                'id' => $this->uuid(),
+                'contract_id' => $id,
+                'order_id' => $orderId,
+                'action' => 'ORDER_EDITED',
+                'old_values' => json_encode($oldValues),
+                'new_values' => json_encode($newValues),
+                'actor_id' => $this->actorId(),
+                'created_at' => $now,
+            ]);
+
+            $this->db->transCommit();
+
+            $updated = $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->get()
+                ->getRowArray();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract order updated.',
+                'data' => $this->mapOrder($updated),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract order update failed', $e);
+
+            return $this->failServerError(
+                'Unable to update credit contract order.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts/{id}/orders/{orderId}/cancel
+     * Finance only.
+     * ============================================================ */
+
+    public function cancelOrder($id = null, $orderId = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $reason = trim((string) ($this->input()['reason'] ?? ''));
+
+        if ($reason === '') {
+            return $this->failValidationErrors(
+                'A cancellation reason is required.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] === 'INVOICED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Orders cannot be cancelled after invoicing.',
+                    409
+                );
+            }
+
+            $order = $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            if (!$order) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract order not found.'
+                );
+            }
+
+            if ($order['status'] === 'CANCELLED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'This order is already cancelled.',
+                    409
+                );
+            }
+
+            $now = date('Y-m-d H:i:s');
+
+            $this->db->table('credit_contract_orders')
+                ->where('id', $orderId)
+                ->update([
+                    'status' => 'CANCELLED',
+                    'cancelled_by' => $this->actorId(),
+                    'cancelled_at' => $now,
+                    'cancellation_reason' => $reason,
+                    'updated_at' => $now,
+                ]);
+
+            $this->db->table('credit_contract_order_history')->insert([
+                'id' => $this->uuid(),
+                'contract_id' => $id,
+                'order_id' => $orderId,
+                'action' => 'ORDER_CANCELLED',
+                'old_values' => json_encode([
+                    'status' => $order['status'],
+                ]),
+                'new_values' => json_encode([
+                    'status' => 'CANCELLED',
+                    'reason' => $reason,
+                ]),
+                'actor_id' => $this->actorId(),
+                'created_at' => $now,
+            ]);
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract order cancelled.',
+                'data' => $this->mapOrder(
+                    $this->db->table('credit_contract_orders')
+                        ->where('id', $orderId)
+                        ->get()
+                        ->getRowArray()
+                ),
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract order cancellation failed', $e);
+
+            return $this->failServerError(
+                'Unable to cancel credit contract order.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * PAYMENT INFORMATION
+     * ============================================================ */
+
+    public function getPaymentInformation($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $contract = $this->findContract((string) $id);
+
+        if (!$contract) {
+            return $this->failNotFound(
+                'Credit contract not found.'
+            );
+        }
+
+        $payment = $this->db->table('credit_contract_payment_information')
+            ->where('contract_id', $id)
+            ->get()
+            ->getRowArray();
+
+        if (!$payment) {
+            return $this->respond([
+                'success' => true,
+                'data' => null,
+            ]);
+        }
+
+        return $this->respond([
+            'success' => true,
+            'data' => [
+                'bank' => $payment['bank'],
+                'paymentSender' => $payment['payment_sender'],
+                'paymentAmount' => (float) $payment['payment_amount'],
+                'paymentDate' => $payment['payment_date'],
+                'paymentReferenceNumber' =>
+                    $payment['payment_reference_number'],
+                'paymentEvidence' => $this->attachmentDetails(
+                    $payment['evidence_attachment_id']
+                ),
+                'remark' => $payment['remark'],
+                'recordedBy' => $payment['recorded_by'],
+                'recordedAt' => $payment['recorded_at'],
+                'updatedAt' => $payment['updated_at'],
+                'confirmed' => false,
+            ],
+        ]);
+    }
+
+    public function savePaymentInformation($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $bank = trim((string) ($input['bank'] ?? ''));
+        $sender = trim((string) ($input['paymentSender'] ?? ''));
+        $reference = trim(
+            (string) ($input['paymentReferenceNumber'] ?? '')
+        );
+
+        $paymentAmount = $this->amount(
+            $input['paymentAmount'] ?? null
+        );
+
+        $paymentDate = !empty($input['paymentDate'])
+            ? $this->toDate($input['paymentDate'])
+            : null;
+
+        if (
+            $bank === '' ||
+            $sender === '' ||
+            $reference === '' ||
+            $paymentAmount === null ||
+            (!empty($input['paymentDate']) && $paymentDate === null)
+        ) {
+            return $this->failValidationErrors(
+                'Bank, payment sender, payment reference and a valid non-negative amount are required.'
+            );
+        }
+
+        $evidence = $input['paymentEvidence'] ?? null;
+        $evidenceId = $this->attachmentId($evidence);
+
+        if (
+            is_array($evidence) &&
+            !empty($evidence['id']) &&
+            (
+                $evidenceId === null ||
+                !$this->attachmentMimeAllowed($evidenceId)
+            )
+        ) {
+            return $this->failValidationErrors(
+                'Payment evidence must be a valid PDF, JPG or PNG attachment.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] === 'CANCELLED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Payment information cannot be changed on a cancelled contract.',
+                    409
+                );
+            }
+
+            $existing = $this->db->table('credit_contract_payment_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $now = date('Y-m-d H:i:s');
+
+            $data = [
+                'bank' => $bank,
+                'payment_sender' => $sender,
+                'payment_amount' => $paymentAmount,
+                'payment_date' => $paymentDate,
+                'payment_reference_number' => $reference,
+                'evidence_attachment_id' => $evidenceId,
+                'remark' => trim((string) ($input['remark'] ?? '')) ?: null,
+                'updated_at' => $now,
+            ];
+
+            if ($existing) {
+                $this->db->table('credit_contract_payment_information')
+                    ->where('contract_id', $id)
+                    ->update($data);
+
+                $action = 'PAYMENT_INFORMATION_UPDATED';
+            } else {
+                $data['id'] = $this->uuid();
+                $data['contract_id'] = $id;
+                $data['recorded_by'] = $this->actorId();
+                $data['recorded_at'] = $now;
+
+                $this->db->table('credit_contract_payment_information')
+                    ->insert($data);
+
+                $action = 'PAYMENT_INFORMATION_RECORDED';
+            }
+
+            $this->addFinancialHistory(
+                (string) $id,
+                $action,
+                $bank . ' · ' . $reference . ' · not confirmed',
+                $existing,
+                $data
+            );
+
+            $this->db->transCommit();
+
+            return $this->getPaymentInformation($id);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit payment information save failed', $e);
+
+            return $this->failServerError(
+                'Unable to save payment information.'
+            );
+        }
+    }
+
+    public function deletePaymentInformation($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            $existing = $this->db->table('credit_contract_payment_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            if ($existing) {
+                $this->db->table('credit_contract_payment_information')
+                    ->where('contract_id', $id)
+                    ->delete();
+
+                $this->addFinancialHistory(
+                    (string) $id,
+                    'PAYMENT_INFORMATION_CLEARED',
+                    $existing['bank'] . ' · ' .
+                    $existing['payment_reference_number'],
+                    $existing,
+                    null
+                );
+            }
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Payment information cleared.',
+                'data' => null,
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit payment information delete failed', $e);
+
+            return $this->failServerError(
+                'Unable to clear payment information.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * WITHHOLDING INFORMATION
+     * ============================================================ */
+
+    public function getWithholding($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $contract = $this->findContract((string) $id);
+
+        if (!$contract) {
+            return $this->failNotFound(
+                'Credit contract not found.'
+            );
+        }
+
+        $row = $this->db->table('credit_contract_withholding_information')
+            ->where('contract_id', $id)
+            ->get()
+            ->getRowArray();
+
+        return $this->respond([
+            'success' => true,
+            'data' => [
+                'enabled' => $row
+                    ? (bool) $row['enabled']
+                    : false,
+                'rate' => $row
+                    ? (float) $row['rate']
+                    : 0,
+                'evidence' => $row
+                    ? $this->attachmentDetails(
+                        $row['evidence_attachment_id']
+                    )
+                    : null,
+                'recordedBy' => $row['recorded_by'] ?? null,
+                'recordedAt' => $row['recorded_at'] ?? null,
+                'updatedAt' => $row['updated_at'] ?? null,
+            ],
+        ]);
+    }
+
+    public function saveWithholding($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $enabled = filter_var(
+            $input['enabled'] ?? false,
+            FILTER_VALIDATE_BOOLEAN
+        );
+
+        $evidence = $input['evidence'] ?? null;
+        $evidenceId = $enabled
+            ? $this->attachmentId($evidence)
+            : null;
+
+        if ($enabled && (
+            $evidenceId === null ||
+            !$this->attachmentMimeAllowed($evidenceId)
+        )) {
+            return $this->failValidationErrors(
+                'Withholding evidence is required and must be PDF, JPG or PNG.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            if ($contract['status'] === 'CANCELLED') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Withholding cannot be changed on a cancelled contract.',
+                    409
+                );
+            }
+
+            $existing = $this->db->table('credit_contract_withholding_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $now = date('Y-m-d H:i:s');
+
+            $data = [
+                'enabled' => $enabled,
+                'rate' => $enabled ? self::WITHHOLDING_RATE : 0,
+                'evidence_attachment_id' => $evidenceId,
+                'updated_at' => $now,
+            ];
+
+            if ($existing) {
+                $this->db->table('credit_contract_withholding_information')
+                    ->where('contract_id', $id)
+                    ->update($data);
+            } else {
+                $data['id'] = $this->uuid();
+                $data['contract_id'] = $id;
+                $data['recorded_by'] = $this->actorId();
+                $data['recorded_at'] = $now;
+
+                $this->db->table('credit_contract_withholding_information')
+                    ->insert($data);
+            }
+
+            $this->addFinancialHistory(
+                (string) $id,
+                'WITHHOLDING_UPDATED',
+                $enabled
+                    ? 'Withholding enabled at 3%.'
+                    : 'Withholding disabled.',
+                $existing,
+                $data
+            );
+
+            $this->db->transCommit();
+
+            return $this->getWithholding($id);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit withholding save failed', $e);
+
+            return $this->failServerError(
+                'Unable to save withholding information.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * FINANCIAL REPORT
+     * GET /api/credit-contracts/{id}/financial-report
+     * ============================================================ */
+
+    public function financialReport($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        try {
+            $contract = $this->findContract((string) $id);
+
+            if (!$contract) {
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            $orders = $this->getOrders((string) $id);
+
+            $completed = array_values(array_filter(
+                $orders,
+                static fn ($order) => $order['status'] === 'COMPLETED'
+            ));
+
+            $subtotal = 0.0;
+
+            foreach ($completed as $order) {
+                $subtotal += (float) $order['lineTotalExclVat'];
+            }
+
+            $subtotal = round($subtotal, 2);
+            $vat = round($subtotal * self::VAT_RATE, 2);
+            $gross = round($subtotal + $vat, 2);
+
+            $withholding = $this->db->table('credit_contract_withholding_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $withholdingEnabled = $withholding
+                ? (bool) $withholding['enabled']
+                : false;
+
+            $withholdingRate = $withholdingEnabled
+                ? self::WITHHOLDING_RATE
+                : 0;
+
+            $withholdingAmount = round(
+                $gross * $withholdingRate,
+                2
+            );
+
+            $net = round($gross - $withholdingAmount, 2);
+
+            $payment = $this->db->table('credit_contract_payment_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $invoice = $this->db->table('sales_invoices')
+                ->where('credit_contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $amountPaid = 0.0;
+            $paymentStatus = 'NO_PAYMENT_INFORMATION';
+
+            if ($invoice) {
+                if ($invoice['status'] === 'PAYMENT_CONFIRMED') {
+                    $amountPaid = $net;
+                    $paymentStatus = 'PAID';
+                } elseif ($invoice['status'] === 'FINANCE_APPROVED') {
+                    $paymentStatus = 'AWAITING_PAYMENT_CONFIRMATION';
+                } elseif ($invoice['status'] === 'DRAFT') {
+                    $paymentStatus = 'AWAITING_INVOICE_APPROVAL';
+                } elseif ($invoice['status'] === 'REJECTED') {
+                    $paymentStatus = 'AWAITING_INVOICE_APPROVAL';
+                } else {
+                    $paymentStatus = 'AWAITING_INVOICE_APPROVAL';
+                }
+            } elseif ($payment) {
+                $paymentStatus = 'RECORDED_NOT_CONFIRMED';
+            }
+
+            $fulfilled = $gross;
+            $contractValue = (float) $contract['contract_value'];
+            $rawPercent = $contractValue > 0
+                ? ($fulfilled / $contractValue) * 100
+                : 0;
+
+            $report = [
+                'contractId' => $contract['id'],
+                'contractNumber' => $contract['contract_number'],
+                'customerName' => $contract['customer_name'],
+                'customerTin' => $contract['customer_tin'],
+                'contractDate' => $contract['contract_date'],
+                'completionDate' => $contract['finalized_at'],
+                'fsNo' => $contract['fs_no'] ?? '',
+                'contractValue' => $contractValue,
+                'fulfilledValue' => $fulfilled,
+                'remainingContractValue' => max(
+                    0,
+                    round($contractValue - $fulfilled, 2)
+                ),
+                'fulfillmentPercent' => min(100, $rawPercent),
+                'rawFulfillmentPercent' => $rawPercent,
+                'overFulfilled' => $fulfilled > $contractValue,
+                'grossAmountDue' => $gross,
+                'totalVat' => $vat,
+                'subtotalExclVat' => $subtotal,
+                'withholdingEnabled' => $withholdingEnabled,
+                'withholdingRate' => $withholdingRate,
+                'withholdingAmount' => $withholdingAmount,
+                'netAmount' => $net,
+                'amountPaid' => $amountPaid,
+                'outstandingBalance' => max(0, $net - $amountPaid),
+                'paymentStatus' => $paymentStatus,
+                'withholdingStatus' => $withholdingEnabled
+                    ? 'APPLIED'
+                    : 'NOT_APPLIED',
+                'invoice' => $invoice ? [
+                    'id' => $invoice['id'],
+                    'invoiceNumber' => $invoice['invoice_number'],
+                    'status' => $invoice['status'],
+                    'paymentConfirmed' =>
+                        $invoice['status'] === 'PAYMENT_CONFIRMED',
+                ] : null,
+                'payment' => $payment ? [
+                    'bank' => $payment['bank'],
+                    'paymentSender' => $payment['payment_sender'],
+                    'paymentAmount' => (float) $payment['payment_amount'],
+                    'paymentDate' => $payment['payment_date'],
+                    'paymentReferenceNumber' =>
+                        $payment['payment_reference_number'],
+                    'recordedBy' => $payment['recorded_by'],
+                    'recordedAt' => $payment['recorded_at'],
+                    'evidence' => $this->attachmentDetails(
+                        $payment['evidence_attachment_id']
+                    ),
+                ] : null,
+                'withholding' => [
+                    'enabled' => $withholdingEnabled,
+                    'rate' => $withholdingRate,
+                    'evidence' => $withholding
+                        ? $this->attachmentDetails(
+                            $withholding['evidence_attachment_id']
+                        )
+                        : null,
+                ],
+                'orders' => $completed,
+            ];
+
+            return $this->respond([
+                'success' => true,
+                'data' => $report,
+            ]);
+        } catch (Throwable $e) {
+            $this->logError('Credit financial report failed', $e);
+
+            return $this->failServerError(
+                'Unable to generate credit contract financial report.'
+            );
+        }
+    }
+
+    /* ============================================================
+     * GET /api/credit-contracts/{id}/invoice
+     * ============================================================ */
+
+    public function invoice($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireSalesOrFinance()) {
+            return $response;
+        }
+
+        $contract = $this->findContract((string) $id);
+
+        if (!$contract) {
+            return $this->failNotFound(
+                'Credit contract not found.'
+            );
+        }
+
+        $invoice = $this->db->table('sales_invoices')
+            ->where('credit_contract_id', $id)
+            ->get()
+            ->getRowArray();
+
+        if (!$invoice) {
+            return $this->failNotFound(
+                'No Sales Invoice has been created for this contract.'
+            );
+        }
+
+        return $this->respond([
+            'success' => true,
+            'data' => [
+                'id' => $invoice['id'],
+                'invoiceNumber' => $invoice['invoice_number'],
+                'status' => $invoice['status'],
+            ],
+        ]);
+    }
+
+    /* ============================================================
+     * INVOICE HELPERS
+     * ============================================================ */
+
+    private function nextInvoiceNumber(): string
+    {
+        $this->db->query(
+            'SELECT pg_advisory_xact_lock(734281)'
+        );
+
+        $row = $this->db->query(
+            "SELECT COALESCE(
+                MAX(CAST(SUBSTRING(invoice_number FROM 5) AS BIGINT)),
+                0
+            ) AS last_number
+            FROM sales_invoices
+            WHERE invoice_number ~ '^INV-[0-9]+$'"
+        )->getRowArray();
+
+        return 'INV-' . str_pad(
+            (string) (((int) ($row['last_number'] ?? 0)) + 1),
+            5,
+            '0',
+            STR_PAD_LEFT
+        );
+    }
+
+    private function createConsolidatedInvoice(
+        array $contract,
+        array $orders,
+        string $fsNo,
+        bool $withholdingEnabled,
+        ?string $withholdingEvidenceId
+    ): array {
+        $subtotal = 0.0;
+
+        foreach ($orders as $order) {
+            $subtotal += (float) $order['line_total_excl_vat'];
+        }
+
+        $subtotal = round($subtotal, 2);
+        $vat = round($subtotal * self::VAT_RATE, 2);
+        $gross = round($subtotal + $vat, 2);
+
+        $withholdingRate = $withholdingEnabled
+            ? self::WITHHOLDING_RATE
+            : 0;
+
+        $withholdingAmount = round(
+            $gross * $withholdingRate,
+            2
+        );
+
+        $net = round($gross - $withholdingAmount, 2);
+
+        $invoiceId = $this->uuid();
+        $now = date('Y-m-d H:i:s');
+
+        // The invoice is created as DRAFT. The existing invoice workflow
+        // remains responsible for submission, approval and payment.
+        $this->db->table('sales_invoices')->insert([
+            'id' => $invoiceId,
+            'invoice_number' => $this->nextInvoiceNumber(),
+            'customer_name_snapshot' => $contract['customer_name'],
+            'customer_tin_snapshot' => $contract['customer_tin'],
+            'fs_no' => $fsNo,
+            'contract_id' => null,
+            'credit_contract_id' => $contract['id'],
+            'invoice_date' => date('Y-m-d'),
+            'subtotal_excl_vat' => $subtotal,
+            'vat_rate' => self::VAT_RATE,
+            'total_vat' => $vat,
+            'total_price_incl_vat' => $gross,
+            'withholding_enabled' => $withholdingEnabled,
+            'withholding_rate' => $withholdingRate,
+            'withholding_amount' => $withholdingAmount,
+            'net_amount_after_withholding' => $net,
+            'bank' => null,
+            'payment_sender' => null,
+            'payment_reference_number' => null,
+            'payment_evidence_attachment_id' => null,
+            'withholding_evidence_attachment_id' =>
+                $withholdingEvidenceId,
+            'remark' => 'Credit contract ' .
+                $contract['contract_number'] .
+                ' — consolidated invoice.',
+            'status' => 'DRAFT',
+            'created_by' => $this->actorId(),
+            'created_at' => $now,
+            'updated_at' => $now,
+            'version' => 1,
+        ]);
+
+        foreach (array_values($orders) as $index => $order) {
+            $lineTotal = round(
+                (float) $order['quantity'] *
+                (float) $order['unit_price'],
+                2
+            );
+
+            $this->db->table('sales_invoice_lines')->insert([
+                'id' => $this->uuid(),
+                'invoice_id' => $invoiceId,
+                'order_number' => $index + 1,
+                'aggregate' => $order['aggregate'],
+                'quantity' => $order['quantity'],
+                'unit' => $order['unit'],
+                'unit_price' => $order['unit_price'],
+                'line_total_excl_vat' => $lineTotal,
+                'royalty_order_number' => $order['order_number'],
+                'royalty_invoice_number' =>
+                    $order['royalty_invoice_number'],
+                'contract_order_id' => null,
+                'credit_contract_order_id' => $order['id'],
+                'order_date' => $order['order_date'],
+                'royalty_amount' => round(
+                    $lineTotal * self::ROYALTY_RATE,
+                    2
+                ),
+            ]);
+        }
+
+        return [
+            'id' => $invoiceId,
+            'invoiceNumber' => $this->db->table('sales_invoices')
+                ->select('invoice_number')
+                ->where('id', $invoiceId)
+                ->get()
+                ->getRow('invoice_number'),
+        ];
+    }
+
+    /* ============================================================
+     * POST /api/credit-contracts/{id}/finalize
+     * Atomic and idempotent.
+     * ============================================================ */
+
+    public function finalize($id = null)
+    {
+        if ($response = $this->authenticate()) {
+            return $response;
+        }
+
+        if ($response = $this->requireFinance()) {
+            return $response;
+        }
+
+        $input = $this->input();
+
+        $fsNo = trim((string) ($input['fsNo'] ?? ''));
+        $reason = trim((string) ($input['reason'] ?? ''));
+
+        if ($fsNo === '') {
+            return $this->failValidationErrors(
+                'FS No is required to finalize a credit contract.'
+            );
+        }
+
+        $this->db->transBegin();
+
+        try {
+            $contract = $this->findContract((string) $id, true);
+
+            if (!$contract) {
+                $this->db->transRollback();
+
+                return $this->failNotFound(
+                    'Credit contract not found.'
+                );
+            }
+
+            // Idempotency: return the invoice already linked to this contract.
+            $existingInvoice = $this->db->table('sales_invoices')
+                ->where('credit_contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            if ($existingInvoice) {
+                if ($contract['status'] !== 'INVOICED') {
+                    $previous = $contract['status'];
+
+                    $this->db->table('credit_contracts')
+                        ->where('id', $id)
+                        ->update([
+                            'status' => 'INVOICED',
+                            'fs_no' => $fsNo,
+                            'finalized_by' => $this->actorId(),
+                            'finalized_at' => date('Y-m-d H:i:s'),
+                            'finalization_reason' => $reason ?: null,
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+
+                    $this->addStatusHistory(
+                        (string) $id,
+                        $previous,
+                        'INVOICED',
+                        'FINALIZED',
+                        $reason ?: null
+                    );
+                }
+
+                $this->db->transCommit();
+
+                return $this->respond([
+                    'success' => true,
+                    'message' => 'This contract was already finalized.',
+                    'data' => [
+                        'contractId' => $id,
+                        'invoiceId' => $existingInvoice['id'],
+                        'invoiceNumber' =>
+                            $existingInvoice['invoice_number'],
+                        'status' => 'INVOICED',
+                    ],
+                ]);
+            }
+
+            if ($contract['status'] !== 'ACTIVE') {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'Only active credit contracts can be finalized.',
+                    409
+                );
+            }
+
+            $orders = $this->db->table('credit_contract_orders')
+                ->where('contract_id', $id)
+                ->where('status', 'COMPLETED')
+                ->orderBy('order_number', 'ASC')
+                ->get()
+                ->getResultArray();
+
+            if (count($orders) === 0) {
+                $this->db->transRollback();
+
+                return $this->fail(
+                    'At least one completed order is required to finalize.',
+                    409
+                );
+            }
+
+            $fulfilled = 0.0;
+
+            foreach ($orders as $order) {
+                $fulfilled += (float) $order['line_total_excl_vat'];
+            }
+
+            $fulfilled = round(
+                $fulfilled * (1 + self::VAT_RATE),
+                2
+            );
+
+            $belowValue = $fulfilled < (float) $contract['contract_value'];
+
+            if ($belowValue && $reason === '') {
+                $this->db->transRollback();
+
+                return $this->failValidationErrors(
+                    'A reason is required when finalizing below the contract value.'
+                );
+            }
+
+            $withholding = $this->db->table('credit_contract_withholding_information')
+                ->where('contract_id', $id)
+                ->get()
+                ->getRowArray();
+
+            $withholdingEnabled = $withholding
+                ? (bool) $withholding['enabled']
+                : false;
+
+            $withholdingEvidenceId = $withholdingEnabled
+                ? ($withholding['evidence_attachment_id'] ?? null)
+                : null;
+
+            if (
+                $withholdingEnabled &&
+                !$this->attachmentMimeAllowed($withholdingEvidenceId)
+            ) {
+                $this->db->transRollback();
+
+                return $this->failValidationErrors(
+                    'Valid withholding evidence is required before finalization.'
+                );
+            }
+
+            $invoice = $this->createConsolidatedInvoice(
+                $contract,
+                $orders,
+                $fsNo,
+                $withholdingEnabled,
+                $withholdingEvidenceId
+            );
+
+            $now = date('Y-m-d H:i:s');
+
+            $this->db->table('credit_contracts')
+                ->where('id', $id)
+                ->update([
+                    'status' => 'INVOICED',
+                    'fs_no' => $fsNo,
+                    'finalized_by' => $this->actorId(),
+                    'finalized_at' => $now,
+                    'finalization_reason' => $reason ?: null,
+                    'updated_at' => $now,
+                    'version' => ((int) $contract['version']) + 1,
+                ]);
+
+            $this->addStatusHistory(
+                (string) $id,
+                'ACTIVE',
+                'INVOICED',
+                'FINALIZED',
+                $reason ?: null
+            );
+
+            if ($this->db->transStatus() === false) {
+                throw new \RuntimeException(
+                    'Credit contract finalization failed.'
+                );
+            }
+
+            $this->db->transCommit();
+
+            return $this->respond([
+                'success' => true,
+                'message' => 'Credit contract finalized and Sales Invoice created.',
+                'data' => [
+                    'contractId' => $id,
+                    'invoiceId' => $invoice['id'],
+                    'invoiceNumber' => $invoice['invoiceNumber'],
+                    'status' => 'INVOICED',
+                    'fulfilledValue' => $fulfilled,
+                    'closedBelowValue' => $belowValue,
+                ],
+            ]);
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+
+            $this->logError('Credit contract finalization failed', $e);
+
+            return $this->failServerError(
+                'Unable to finalize credit contract.'
+            );
+        }
+    }
+}
