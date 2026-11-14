@@ -9,13 +9,19 @@ use CodeIgniter\HTTP\ResponseInterface;
 class Cors implements FilterInterface
 {
     private array $allowedOrigins = [
+        // Local development
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'http://10.172.234.234:5173',
 
-    // Production frontend
-    'https://frontend-jw6mf2p3j-tesfa6.vercel.app',
-    'https://frontend-tesfa6.vercel.app',
-    'https://frontend-kappa-nine-44.vercel.app',
-    'https://frontend-02p8.onrender.com',
-];
+        // Vercel production and preview domains
+        'https://frontend-jw6mf2p3j-tesfa6.vercel.app',
+        'https://frontend-tesfa6.vercel.app',
+        'https://frontend-kappa-nine-44.vercel.app',
+
+        // Render production
+        'https://frontend-02p8.onrender.com',
+    ];
 
     private function applyCorsHeaders(
         RequestInterface $request,
