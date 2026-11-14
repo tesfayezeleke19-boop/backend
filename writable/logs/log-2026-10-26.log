@@ -1,0 +1,148 @@
+CRITICAL - 2026-10-26 12:27:22 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "{4aabcffe-9342-4471-a74d-feed3b2ca449}"
+[Method: POST, Route: api/finance/expenses/%7B4aabcffe-9342-4471-a74d-feed3b2ca449%7D/reject]
+in SYSTEMPATH\Router\Router.php on line 768.
+ 1 SYSTEMPATH\Router\Router.php(217): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH\CodeIgniter.php(852): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH\CodeIgniter.php(464): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-10-26 20:59:32 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:09:30 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:09:36 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:21 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:21 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses/review-queue]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:21 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:21 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses/review-queue]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:33 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:33 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses/review-queue]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:33 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:12:33 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses/review-queue]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:13:15 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:13:35 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:13:44 --> ErrorException: Cannot redeclare class App\Filters\Cors (previously declared in D:\projects\erp\backend\app\Config\Cors.php:9)
+[Method: OPTIONS, Route: api/finance/expenses]
+in APPPATH\Config\Cors.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:18:45 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:18:50 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:18:58 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:19:05 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:20:26 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:20:37 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::show(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 373.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:22:58 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:22:58 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/finance/expenses/review-queue]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:22:58 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:22:58 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/finance/expenses/review-queue]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:23:21 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:23:25 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:23:45 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:24:14 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:24:15 --> ErrorException: Declaration of App\Controllers\Api\FinanceExpensesController::update(string $id): CodeIgniter\HTTP\ResponseInterface must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 465.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:28:26 --> ErrorException: Access level to App\Controllers\Api\FinanceExpensesController::fail() must be protected (as in class CodeIgniter\RESTful\ResourceController) or weaker
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 34.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:29:19 --> ErrorException: Access level to App\Controllers\Api\FinanceExpensesController::fail() must be protected (as in class CodeIgniter\RESTful\ResourceController) or weaker
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 34.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-10-26 21:31:25 --> TypeError: CodeIgniter\Router\RouteCollection::{closure:D:\projects\erp\backend\app\Config\Routes.php:42}(): Argument #1 ($routes) must be of type RouteCollection, CodeIgniter\Router\RouteCollection given, called in D:\projects\erp\backend\vendor\codeigniter4\framework\system\Router\RouteCollection.php on line 694
+[Method: POST, Route: api/finance/expenses]
+in APPPATH\Config\Routes.php on line 42.
+ 1 SYSTEMPATH\Router\RouteCollection.php(694): CodeIgniter\Router\RouteCollection::{closure:D:\projects\erp\backend\app\Config\Routes.php:42}()
+ 2 APPPATH\Config\Routes.php(42): CodeIgniter\Router\RouteCollection->group()
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('D:\\projects\\erp\\backend\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(841): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(464): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')

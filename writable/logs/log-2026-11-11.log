@@ -1,0 +1,188 @@
+ERROR - 2026-11-11 09:03:38 --> pg_query(): Query failed: ERROR:  new row for relation &quot;payroll_runs&quot; violates check constraint &quot;payroll_runs_status_check&quot;
+DETAIL:  Failing row contains (a13d537b-4893-4f7c-9385-8a8e4b0caad0, PAY-202611-A13D53, November 2026, 11, 2026, 2026-11-01, 2026-11-30, SUBMITTED, 153.00, null, null, 2026-11-11 09:03:38+03, null, null, null, null, null, 2026-11-10 20:36:29+03, 2026-11-11 09:03:38+03, 3).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\PayrollController.php(629): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\PayrollController->submit()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 09:03:38 --> Payroll submit error: pg_query(): Query failed: ERROR:  new row for relation &quot;payroll_runs&quot; violates check constraint &quot;payroll_runs_status_check&quot;
+DETAIL:  Failing row contains (a13d537b-4893-4f7c-9385-8a8e4b0caad0, PAY-202611-A13D53, November 2026, 11, 2026, 2026-11-01, 2026-11-30, SUBMITTED, 153.00, null, null, 2026-11-11 09:03:38+03, null, null, null, null, null, 2026-11-10 20:36:29+03, 2026-11-11 09:03:38+03, 3).
+ERROR - 2026-11-11 09:06:27 --> pg_query(): Query failed: ERROR:  new row for relation &quot;payroll_runs&quot; violates check constraint &quot;payroll_runs_status_check&quot;
+DETAIL:  Failing row contains (a13d537b-4893-4f7c-9385-8a8e4b0caad0, PAY-202611-A13D53, November 2026, 11, 2026, 2026-11-01, 2026-11-30, SUBMITTED, 153.00, null, null, 2026-11-11 09:06:27+03, null, null, null, null, null, 2026-11-10 20:36:29+03, 2026-11-11 09:06:27+03, 3).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\PayrollController.php(629): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\PayrollController->submit()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 09:06:27 --> Payroll submit error: pg_query(): Query failed: ERROR:  new row for relation &quot;payroll_runs&quot; violates check constraint &quot;payroll_runs_status_check&quot;
+DETAIL:  Failing row contains (a13d537b-4893-4f7c-9385-8a8e4b0caad0, PAY-202611-A13D53, November 2026, 11, 2026, 2026-11-01, 2026-11-30, SUBMITTED, 153.00, null, null, 2026-11-11 09:06:27+03, null, null, null, null, null, 2026-11-10 20:36:29+03, 2026-11-11 09:06:27+03, 3).
+ERROR - 2026-11-11 12:53:55 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 12:53:55 --> Finance payroll approval error: Call to a member function getRowArray() on false
+ERROR - 2026-11-11 12:53:58 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 12:53:58 --> Finance payroll approval error: Call to a member function getRowArray() on false
+ERROR - 2026-11-11 13:00:39 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 13:00:39 --> Finance payroll approval error: Call to a member function getRowArray() on false
+ERROR - 2026-11-11 13:37:29 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 13:37:29 --> Finance payroll approval error: Call to a member function getRowArray() on false
+ERROR - 2026-11-11 13:37:33 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 13:37:33 --> Finance payroll approval error: Call to a member function getRowArray() on false
+ERROR - 2026-11-11 13:38:02 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;PAY-202611-A13D53&quot;
+LINE 4: &quot;id&quot; = 'PAY-202611-A13D53'
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\FinancePayrollController.php(363): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\FinancePayrollController.php(112): App\Controllers\Api\FinancePayrollController->findRun()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinancePayrollController->approve()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-11 13:38:02 --> Finance payroll approval error: Call to a member function getRowArray() on false
+WARNING - 2026-11-11 19:05:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-11 19:05:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-11 19:05:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-11 19:05:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')

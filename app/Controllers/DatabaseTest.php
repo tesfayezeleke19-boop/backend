@@ -2,47 +2,44 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Controller;
 use Config\Database;
 
-class DatabaseTest extends BaseController
+class DatabaseTest extends Controller
 {
-    public function index(): ResponseInterface
+    public function index()
     {
         try {
+            if (!extension_loaded('pgsql')) {
+                throw new \RuntimeException(
+                    'PHP PostgreSQL extension is not installed.'
+                );
+            }
+
             $db = Database::connect();
-            $db->initialize();
 
-            $query = $db->query(
+            $result = $db->query(
                 'SELECT current_database() AS database_name,
-                        CURRENT_TIMESTAMP AS server_time'
-            );
+                        current_user AS database_user,
+                        NOW() AS server_time'
+            )->getRowArray();
 
-            $result = $query->getRowArray();
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'PostgreSQL connection successful!',
+                'pgsql_extension' => true,
+                'database' => $result['database_name'],
+                'user' => $result['database_user'],
+                'server_time' => $result['server_time'],
+            ]);
 
-            return $this->response
-                ->setStatusCode(200)
-                ->setJSON([
-                    'success' => true,
-                    'message' => 'PostgreSQL connection successful.',
-                    'database' => $result['database_name'],
-                    'server_time' => $result['server_time'],
-                ]);
         } catch (\Throwable $e) {
-            log_message(
-                'error',
-                'Database connection test failed: ' . $e->getMessage()
-            );
+            log_message('error', 'Database test failed: ' . $e->getMessage());
 
-            return $this->response
-                ->setStatusCode(500)
-                ->setJSON([
-                    'success' => false,
-                    'message' => 'Database connection failed.',
-                    'error' => ENVIRONMENT === 'development'
-                        ? $e->getMessage()
-                        : 'Check the backend configuration and server logs.',
-                ]);
+            return $this->response->setStatusCode(500)->setJSON([
+                'success' => false,
+                'message' => 'Database connection failed.',
+            ]);
         }
     }
 }

@@ -1,0 +1,14 @@
+ERROR - 2026-10-23 13:19:51 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: ERROR:  invalid value for parameter "client_encoding": "utf8mb4" in D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:113
+Stack trace:
+#0 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(550): CodeIgniter\Database\Postgre\Connection->connect()
+#1 D:\projects\erp\backend\app\Controllers\DatabaseTest.php(14): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(974): App\Controllers\DatabaseTest->index()
+#3 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+#4 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+#5 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#6 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#7 D:\projects\erp\backend\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#8 D:\projects\erp\backend\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#9 {main}
+ERROR - 2026-10-23 13:19:51 --> Database connection test failed: Unable to connect to the database.
+Main connection [Postgre]: ERROR:  invalid value for parameter "client_encoding": "utf8mb4"

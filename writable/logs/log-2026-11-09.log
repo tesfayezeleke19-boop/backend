@@ -1,0 +1,787 @@
+ERROR - 2026-11-09 19:39:52 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(95): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->preview()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:39:53 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 19:40:03 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(766): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:40:03 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:40:03 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(798): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:40:03 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:40:03 --> Attendance import row update: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:43:00 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(535): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceController.php(552): App\Controllers\Api\AttendanceController->standardWorkingMinutes()
+ 6 APPPATH\Controllers\Api\AttendanceController.php(243): App\Controllers\Api\AttendanceController->calculateOvertimeMinutes()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:43:00 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 19:43:14 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(95): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->preview()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:43:14 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 19:43:24 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(766): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:43:24 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:43:24 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(798): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:43:24 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:43:24 --> Attendance import row update: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:44:37 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(766): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:44:37 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:44:37 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(798): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:44:37 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:44:37 --> Attendance import row update: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:52:06 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(766): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:52:06 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:52:06 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(798): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:52:06 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:52:06 --> Attendance import row update: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:52:52 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(535): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceController.php(552): App\Controllers\Api\AttendanceController->standardWorkingMinutes()
+ 6 APPPATH\Controllers\Api\AttendanceController.php(243): App\Controllers\Api\AttendanceController->calculateOvertimeMinutes()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:52:52 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 19:53:17 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(95): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->preview()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:53:17 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 19:53:22 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1166): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(766): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:53:22 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:53:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(798): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:53:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:53:22 --> Attendance import row update: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:58:22 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:58:22 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:58:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:58:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:58:22 --> Attendance import row SELECT failed. Import ID: fd38e63b-444c-4a20-868c-ed56eb8804da, Row ID: ef7f68d9-c3d7-4149-9baa-87c701b9ff0f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = 'ef7f68d9-c3d7-4149-9baa-87c701b9ff0f'
+AND "import_id" = 'fd38e63b-444c-4a20-868c-ed56eb8804da'
+ERROR - 2026-11-09 19:58:22 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 19:58:28 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 19:58:28 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 19:58:28 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:58:28 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 19:58:28 --> Attendance import row SELECT failed. Import ID: fd38e63b-444c-4a20-868c-ed56eb8804da, Row ID: ef7f68d9-c3d7-4149-9baa-87c701b9ff0f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = 'ef7f68d9-c3d7-4149-9baa-87c701b9ff0f'
+AND "import_id" = 'fd38e63b-444c-4a20-868c-ed56eb8804da'
+ERROR - 2026-11-09 19:58:28 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:00:53 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:00:53 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:00:53 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:00:54 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:00:54 --> Attendance import row SELECT failed. Import ID: fd38e63b-444c-4a20-868c-ed56eb8804da, Row ID: ef7f68d9-c3d7-4149-9baa-87c701b9ff0f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = 'ef7f68d9-c3d7-4149-9baa-87c701b9ff0f'
+AND "import_id" = 'fd38e63b-444c-4a20-868c-ed56eb8804da'
+ERROR - 2026-11-09 20:00:54 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:01:34 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(95): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->preview()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:01:34 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 20:01:57 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:01:57 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:01:57 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:01:57 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:01:57 --> Attendance import row SELECT failed. Import ID: 6248c72a-0223-4121-a9e8-1aab562000a7, Row ID: 59b37dbc-8989-4ac7-b6d7-a5adeacfc06f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '59b37dbc-8989-4ac7-b6d7-a5adeacfc06f'
+AND "import_id" = '6248c72a-0223-4121-a9e8-1aab562000a7'
+ERROR - 2026-11-09 20:01:57 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:07:41 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:07:41 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:07:41 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:07:41 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:07:41 --> Attendance import row SELECT failed. Import ID: 6248c72a-0223-4121-a9e8-1aab562000a7, Row ID: 59b37dbc-8989-4ac7-b6d7-a5adeacfc06f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '59b37dbc-8989-4ac7-b6d7-a5adeacfc06f'
+AND "import_id" = '6248c72a-0223-4121-a9e8-1aab562000a7'
+ERROR - 2026-11-09 20:07:41 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:08:19 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(95): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->preview()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:08:19 --> Could not read standard_working_hours: pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+ERROR - 2026-11-09 20:09:43 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:09:43 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:09:43 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:09:43 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:09:43 --> Attendance import row SELECT failed. Import ID: 28a71f3e-7463-4525-8d07-42782bc7e6e7, Row ID: 7caae123-139c-459f-8a7f-e868e339291f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '7caae123-139c-459f-8a7f-e868e339291f'
+AND "import_id" = '28a71f3e-7463-4525-8d07-42782bc7e6e7'
+ERROR - 2026-11-09 20:09:43 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:10:15 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:10:15 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:10:15 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:15 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:15 --> Attendance import row SELECT failed. Import ID: 28a71f3e-7463-4525-8d07-42782bc7e6e7, Row ID: 7caae123-139c-459f-8a7f-e868e339291f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '7caae123-139c-459f-8a7f-e868e339291f'
+AND "import_id" = '28a71f3e-7463-4525-8d07-42782bc7e6e7'
+ERROR - 2026-11-09 20:10:15 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:10:22 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:10:22 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:10:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:22 --> Attendance import row SELECT failed. Import ID: 28a71f3e-7463-4525-8d07-42782bc7e6e7, Row ID: 7caae123-139c-459f-8a7f-e868e339291f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '7caae123-139c-459f-8a7f-e868e339291f'
+AND "import_id" = '28a71f3e-7463-4525-8d07-42782bc7e6e7'
+ERROR - 2026-11-09 20:10:22 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR - 2026-11-09 20:10:58 --> pg_query(): Query failed: ERROR:  column &quot;value&quot; does not exist
+LINE 1: SELECT &quot;value&quot;
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(1191): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceImportController.php(791): App\Controllers\Api\AttendanceImportController->standardWorkingMinutes()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-09 20:10:58 --> Could not read standard_working_hours: Call to a member function getRowArray() on false
+ERROR - 2026-11-09 20:10:58 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(823): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:58 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceImportController.php(694): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceImportController->updateRows()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-09 20:10:58 --> Attendance import row SELECT failed. Import ID: 28a71f3e-7463-4525-8d07-42782bc7e6e7, Row ID: 7caae123-139c-459f-8a7f-e868e339291f, Database error: {"code":"","message":"ERROR:  current transaction is aborted, commands ignored until end of transaction block"}, SQL: SELECT *
+FROM "attendance_import_rows"
+WHERE "id" = '7caae123-139c-459f-8a7f-e868e339291f'
+AND "import_id" = '28a71f3e-7463-4525-8d07-42782bc7e6e7'
+ERROR - 2026-11-09 20:10:58 --> Attendance import row update: Could not read attendance import row: ERROR:  current transaction is aborted, commands ignored until end of transaction block

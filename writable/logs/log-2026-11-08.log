@@ -1,0 +1,14 @@
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original size = 86458
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original SHA256 = e31d710a18bb44447299ddaa812fce37fa9eaa9ebe0dc2be7e346217a9f3bd9a
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original size = 86458
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original SHA256 = e31d710a18bb44447299ddaa812fce37fa9eaa9ebe0dc2be7e346217a9f3bd9a
+ERROR - 2026-11-08 19:39:48 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+CRITICAL - 2026-11-08 19:58:49 --> ErrorException: Cannot redeclare class App\Controllers\Api\AttendanceImportController (previously declared in D:\projects\erp\backend\app\Controllers\Api\AttendanceController.php:8)
+[Method: GET, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-08 19:58:50 --> ErrorException: Cannot redeclare class App\Controllers\Api\AttendanceImportController (previously declared in D:\projects\erp\backend\app\Controllers\Api\AttendanceController.php:8)
+[Method: GET, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

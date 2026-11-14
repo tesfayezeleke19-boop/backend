@@ -1,0 +1,339 @@
+ERROR - 2026-11-06 09:05:04 --> Image test upload failed: Class "finfo" not found
+ERROR - 2026-11-06 09:11:12 --> Image test upload failed: Class "finfo" not found
+ERROR - 2026-11-06 09:11:12 --> Image test upload failed: Class "finfo" not found
+ERROR - 2026-11-06 09:35:52 --> Invoice attachment physical file missing: D:\projects\erp\backend\file\invoices\7d255e39-0fd1-4185-9ee6-b23767a48143.jpg
+ERROR - 2026-11-06 09:35:52 --> Invoice attachment physical file missing: D:\projects\erp\backend\file\invoices\7d255e39-0fd1-4185-9ee6-b23767a48143.jpg
+ERROR - 2026-11-06 10:45:04 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;INV-00030&quot;
+LINE 3: WHERE &quot;id&quot; = 'INV-00030'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:45:04 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;INV-00030&quot;
+LINE 3: WHERE &quot;id&quot; = 'INV-00030'
+                     ^
+[Method: GET, Route: api/sales/invoices/INV-00030]
+in SYSTEMPATH\Database\BaseConnection.php on line 860.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:45:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;INV-00030&quot;
+LINE 3: WHERE &quot;id&quot; = 'INV-00030'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 228.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:45:04 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;INV-00030&quot;
+LINE 3: WHERE &quot;id&quot; = 'INV-00030'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(210): pg_query()
+ 3 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 8 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 9 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-06 10:47:07 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;2F58096c81-96f3-4de3-b586-a785b491a59d&quot;
+LINE 3: WHERE &quot;id&quot; = '2F58096c81-96f3-4de3-b586-a785b491a59d'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:47:07 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;2F58096c81-96f3-4de3-b586-a785b491a59d&quot;
+LINE 3: WHERE &quot;id&quot; = '2F58096c81-96f3-4de3-b586-a785b491a59d'
+                     ^
+[Method: GET, Route: api/sales/invoices/2F58096c81-96f3-4de3-b586-a785b491a59d]
+in SYSTEMPATH\Database\BaseConnection.php on line 860.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:47:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;2F58096c81-96f3-4de3-b586-a785b491a59d&quot;
+LINE 3: WHERE &quot;id&quot; = '2F58096c81-96f3-4de3-b586-a785b491a59d'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 228.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 10:47:07 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;2F58096c81-96f3-4de3-b586-a785b491a59d&quot;
+LINE 3: WHERE &quot;id&quot; = '2F58096c81-96f3-4de3-b586-a785b491a59d'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(210): pg_query()
+ 3 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH\Controllers\Api\SalesInvoicesController.php(450): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Api\SalesInvoicesController.php(831): App\Controllers\Api\SalesInvoicesController->loadInvoice()
+ 8 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\SalesInvoicesController->show()
+ 9 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-06 11:30:00 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:30:00 --> ATTACHMENT DEBUG: Output buffer length = 0
+ERROR - 2026-11-06 11:30:00 --> ATTACHMENT DEBUG: Output buffer first bytes = 
+ERROR - 2026-11-06 11:34:35 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:34:35 --> ATTACHMENT DEBUG: Output buffer length = 0
+ERROR - 2026-11-06 11:34:35 --> ATTACHMENT DEBUG: Output buffer first bytes = 
+ERROR - 2026-11-06 11:38:04 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:38:04 --> ATTACHMENT DEBUG: Output buffer length = 0
+ERROR - 2026-11-06 11:38:04 --> ATTACHMENT DEBUG: Output buffer first bytes = 
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: Output buffer length = 0
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: Output handlers = [{"name":"{closure:{closure:D:\\projects\\erp\\backend\\app\\Config\\Events.php:26}:38}","type":1,"flags":113,"level":0,"chunk_size":0,"buffer_size":16384,"buffer_used":1},{"name":"default output handler","type":0,"flags":112,"level":1,"chunk_size":0,"buffer_size":16384,"buffer_used":0}]
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: Handler names = ["{closure:{closure:D:\\projects\\erp\\backend\\app\\Config\\Events.php:26}:38}","default output handler"]
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: output_buffering = 4096
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: zlib.output_compression = 
+ERROR - 2026-11-06 11:40:11 --> ATTACHMENT DEBUG: Original file first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:45:39 --> ATTACHMENT DEBUG: Original file size = 470541
+ERROR - 2026-11-06 11:45:39 --> ATTACHMENT DEBUG: Original file first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:45:39 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:45:39 --> ATTACHMENT DEBUG: Buffer status = [{"name":"{closure:{closure:D:\\projects\\erp\\backend\\app\\Config\\Events.php:26}:38}","type":1,"flags":113,"level":0,"chunk_size":0,"buffer_size":16384,"buffer_used":1},{"name":"default output handler","type":0,"flags":112,"level":1,"chunk_size":0,"buffer_size":16384,"buffer_used":0}]
+ERROR - 2026-11-06 11:45:39 --> ATTACHMENT DEBUG: Current buffer content HEX = 
+ERROR - 2026-11-06 11:45:57 --> ATTACHMENT DEBUG: Original file size = 470541
+ERROR - 2026-11-06 11:45:57 --> ATTACHMENT DEBUG: Original file first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:45:57 --> ATTACHMENT DEBUG: Output buffer level = 2
+ERROR - 2026-11-06 11:45:57 --> ATTACHMENT DEBUG: Buffer status = [{"name":"{closure:{closure:D:\\projects\\erp\\backend\\app\\Config\\Events.php:26}:38}","type":1,"flags":113,"level":0,"chunk_size":0,"buffer_size":16384,"buffer_used":1},{"name":"default output handler","type":0,"flags":112,"level":1,"chunk_size":0,"buffer_size":16384,"buffer_used":0}]
+ERROR - 2026-11-06 11:45:57 --> ATTACHMENT DEBUG: Current buffer content HEX = 
+ERROR - 2026-11-06 11:51:13 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:51:13 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:51:13 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:53:35 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:53:43 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:55:02 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:55:02 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:55:02 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:05 --> Invoice attachment file missing: D:\projects\erp\backend\file\invoices\87b76301-6de9-412e-81ba-fe6c30f314e9.jpg
+ERROR - 2026-11-06 11:56:05 --> Invoice attachment file missing: D:\projects\erp\backend\file\invoices\59989ce5-9558-4da8-a236-34d6ba652b42.webp
+ERROR - 2026-11-06 11:56:05 --> Invoice attachment file missing: D:\projects\erp\backend\file\invoices\87b76301-6de9-412e-81ba-fe6c30f314e9.jpg
+ERROR - 2026-11-06 11:56:05 --> Invoice attachment file missing: D:\projects\erp\backend\file\invoices\59989ce5-9558-4da8-a236-34d6ba652b42.webp
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:14 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:19 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:29 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:33 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:33 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:33 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 11:56:34 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 11:56:34 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 11:56:34 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:40 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:42 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:51 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:53 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:00:56 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:30 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:31 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:31 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:31 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:32 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:32 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:32 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:33 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:33 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:33 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 12:01:34 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 12:01:34 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 12:01:34 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original size = 470541
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original SHA256 = 61727beeeb68bfc5c21be154f77d1dc984b92795bb54799b5e807417cdb5eb71
+ERROR - 2026-11-06 19:22:30 --> ATTACHMENT: Original first bytes = ffd8ffdb00430001
+WARNING - 2026-11-06 19:24:20 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-06 19:24:20 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-06 19:24:21 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-06 19:24:21 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-06 19:24:31 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-06 19:24:31 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-06 19:25:41 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-06 19:25:42 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll/config]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-06 19:25:42 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-06 19:25:42 --> ErrorException: Declaration of App\Controllers\Api\OperationalSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: GET, Route: api/hr/payroll/config]
+in APPPATH\Controllers\Api\PayrollController.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

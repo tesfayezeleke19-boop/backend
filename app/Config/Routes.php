@@ -905,3 +905,7 @@ $routes->group('api/contracts', ['namespace' => 'App\Controllers\Api'], static f
     $routes->post('(:segment)/conversion/complete', 'ContractOrdersController::markConverted/$1');
     $routes->post('(:segment)/conversion/failed', 'ContractOrdersController::conversionFailed/$1');
 });
+
+
+
+$routes->get('api/database-test', 'DatabaseTest::index');

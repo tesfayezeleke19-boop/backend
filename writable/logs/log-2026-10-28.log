@@ -1,0 +1,147 @@
+CRITICAL - 2026-10-28 13:19:27 --> Error: Call to undefined method App\Controllers\Api\AttendanceController::respond()
+[Method: GET, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 103.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:24:50 --> Attendance create failed: Call to undefined method App\Controllers\Api\AttendanceController::respondCreated()
+CRITICAL - 2026-10-28 13:24:50 --> Error: Call to undefined method App\Controllers\Api\AttendanceController::failServerError()
+[Method: POST, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 208.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:31 --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(177): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:31 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(329): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceController.php(179): App\Controllers\Api\AttendanceController->findRecord()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:31 --> Attendance create failed: Call to a member function getRowArray() on false
+CRITICAL - 2026-10-28 13:26:31 --> Error: Call to undefined method App\Controllers\Api\AttendanceController::failServerError()
+[Method: POST, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 208.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:43 --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(177): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:43 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(329): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\AttendanceController.php(179): App\Controllers\Api\AttendanceController->findRecord()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:26:43 --> Attendance create failed: Call to a member function getRowArray() on false
+CRITICAL - 2026-10-28 13:26:43 --> Error: Call to undefined method App\Controllers\Api\AttendanceController::failServerError()
+[Method: POST, Route: api/attendance]
+in APPPATH\Controllers\Api\AttendanceController.php on line 208.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:30:21 --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(214): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:30:21 --> Attendance create failed: pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+ERROR - 2026-10-28 13:31:14 --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(214): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:31:14 --> Attendance create failed: pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(f9c4857c-e671-42d2-b3fb-f8901bab60db, 2026-10-28) already exists.
+ERROR - 2026-10-28 13:32:56 --> pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(792a7b94-b266-46a4-9cbf-24ddf867bb4d, 2026-10-28) already exists.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AttendanceController.php(214): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AttendanceController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-10-28 13:32:56 --> Attendance create failed: pg_query(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;attendance_records_employee_id_attendance_date_key&quot;
+DETAIL:  Key (employee_id, attendance_date)=(792a7b94-b266-46a4-9cbf-24ddf867bb4d, 2026-10-28) already exists.

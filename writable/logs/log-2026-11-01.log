@@ -1,0 +1,60 @@
+ERROR - 2026-11-01 19:30:35 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1744): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AdminExpensesController.php(183): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Api\AdminExpensesController.php(220): App\Controllers\Api\AdminExpensesController->attachmentId()
+ 6 APPPATH\Controllers\Api\AdminExpensesController.php(406): App\Controllers\Api\AdminExpensesController->mapInput()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AdminExpensesController->create()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-01 19:30:35 --> Admin expense creation failed: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
+ERROR - 2026-11-01 19:33:03 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1744): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AdminExpensesController.php(183): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Api\AdminExpensesController.php(220): App\Controllers\Api\AdminExpensesController->attachmentId()
+ 6 APPPATH\Controllers\Api\AdminExpensesController.php(406): App\Controllers\Api\AdminExpensesController->mapInput()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AdminExpensesController->create()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-01 19:33:03 --> Admin expense creation failed: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
+ERROR - 2026-11-01 19:33:44 --> pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1744): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\AdminExpensesController.php(183): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Api\AdminExpensesController.php(220): App\Controllers\Api\AdminExpensesController->attachmentId()
+ 6 APPPATH\Controllers\Api\AdminExpensesController.php(406): App\Controllers\Api\AdminExpensesController->mapInput()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AdminExpensesController->create()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-01 19:33:44 --> Admin expense creation failed: pg_query(): Query failed: ERROR:  invalid input syntax for type uuid: &quot;att-1793561431389-hseb8c&quot;
+LINE 3: WHERE &quot;id&quot; = 'att-1793561431389-hseb8c'
+                     ^
