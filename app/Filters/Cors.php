@@ -14,7 +14,7 @@ class Cors implements FilterInterface
     'http://10.172.234.234:5173',
 
     // Production frontend
-    'https://YOUR-VERCEL-DOMAIN.vercel.app',
+    'https://frontend-kappa-nine-44.vercel.app',
 ];
 
     private function applyCorsHeaders(
