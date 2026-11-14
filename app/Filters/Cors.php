@@ -11,6 +11,8 @@ class Cors implements FilterInterface
     private array $allowedOrigins = [
 
     // Production frontend
+    'https://frontend-jw6mf2p3j-tesfa6.vercel.app',
+    'https://frontend-tesfa6.vercel.app',
     'https://frontend-kappa-nine-44.vercel.app',
 ];
 
