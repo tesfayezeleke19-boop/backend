@@ -453,7 +453,7 @@ $routes->group('api/leave-requests', static function ($routes) {
 $payrollOptions = static function () {
     return service('response')
         ->setStatusCode(204)
-        ->setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+        ->setHeader('Access-Control-Allow-Origin', 'https://frontend-kappa-nine-44.vercel.app')
         ->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
         ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
         ->setHeader('Access-Control-Max-Age', '86400');
@@ -691,7 +691,7 @@ $routes->group(
 $profileOptions = static function () {
     return service('response')
         ->setStatusCode(204)
-        ->setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+        ->setHeader('Access-Control-Allow-Origin', 'https://frontend-kappa-nine-44.vercel.app')
         ->setHeader('Vary', 'Origin')
         ->setHeader(
             'Access-Control-Allow-Methods',
