@@ -14,7 +14,7 @@ class Cors implements FilterInterface
     'https://frontend-jw6mf2p3j-tesfa6.vercel.app',
     'https://frontend-tesfa6.vercel.app',
     'https://frontend-kappa-nine-44.vercel.app',
-    'https://frontend-02p8.onrender.com'
+    'https://frontend-02p8.onrender.com',
 ];
 
     private function applyCorsHeaders(
