@@ -19,7 +19,7 @@ class AttendanceSettingsController extends ResourceController
      * GET /api/attendance/settings
      */
 
-    public function show()
+    public function show($id = null)
     {
         $settings = $this->db->table('attendance_settings')
             ->where('id', 1)
@@ -46,7 +46,7 @@ class AttendanceSettingsController extends ResourceController
      * }
      */
 
-    public function update()
+    public function update($id = null)
     {
         $payload = $this->request->getJSON(true);
 
@@ -133,3 +133,5 @@ class AttendanceSettingsController extends ResourceController
         return $session['user_id'] ?? null;
     }
 }
+
+

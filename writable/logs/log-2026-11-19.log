@@ -1,0 +1,268 @@
+CRITICAL - 2026-11-19 12:53:10 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 12:53:10 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:56:03 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:56:37 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 12:57:52 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:57:52 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:57:52 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 12:57:58 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 12:57:58 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 12:57:58 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+CRITICAL - 2026-11-19 12:59:01 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 12:59:02 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 14:16:33 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 14:16:34 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 14:18:50 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-19 14:18:51 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-11-19 14:30:14 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 14:30:14 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 14:30:14 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 14:43:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 14:43:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 14:43:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 14:43:31 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 14:43:31 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 14:43:31 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:02:31 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:02:31 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:02:31 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:06:58 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:06:58 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:06:58 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:08:00 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:08:00 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:08:00 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:22:32 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:22:32 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:22:32 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:26:54 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:26:54 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:26:54 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:31:25 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:31:25 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:31:25 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:31:27 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:31:27 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:31:27 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:33:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:33:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:33:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 15:33:31 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 15:33:31 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 15:33:31 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:14:06 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:14:06 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:14:06 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:16:09 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:16:09 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:16:09 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:16:26 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:16:26 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:16:26 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:16:46 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:16:46 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:16:46 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:17:34 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:17:34 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:17:34 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:18:05 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:18:05 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:18:05 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:18:21 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:18:21 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:18:21 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:19:00 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:19:00 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:19:00 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:19:27 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:19:27 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:19:27 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:19:39 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:19:39 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:19:39 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:19:40 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:19:40 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:19:40 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:20:27 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:20:27 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:20:27 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:24:09 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:24:09 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:24:09 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:24:10 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:27:15 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:27:15 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:27:15 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:27:27 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:27:27 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:27:27 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:28:27 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:28:27 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:28:27 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:29:54 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:29:54 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:29:54 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:36:05 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:36:05 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:36:05 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:36:52 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:36:52 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:36:52 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 17:56:26 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 17:56:26 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 17:56:26 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 18:33:11 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 18:33:11 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 18:33:11 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 20:24:32 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 20:24:32 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 20:24:32 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-19 20:30:27 --> pg_query(): Query failed: ERROR:  new row for relation &quot;credit_contracts&quot; violates check constraint &quot;credit_contracts_contract_value_check&quot;
+DETAIL:  Failing row contains (7a447929-cbc1-440f-b0d6-4aa004b3bd22, CC-00003, tesfaye, 32534534, 0.00, null, 2026-11-18, 4tesddt, DRAFT, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, null, null, null, null, 2026-11-19 20:30:27+03, 2026-11-19 20:30:27+03, 1, [{&quot;id&quot;: &quot;3fc38da5-0e0e-4f41-9a75-57b4e29c30e7&quot;, &quot;fileUrl&quot;: &quot;/api...).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(1064): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:30:27 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(692): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\CreditContractsController.php(1080): App\Controllers\Api\CreditContractsController->addStatusHistory()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:30:27 --> Credit contract create failed: Credit contract creation failed.
+ERROR - 2026-11-19 20:30:35 --> pg_query(): Query failed: ERROR:  new row for relation &quot;credit_contracts&quot; violates check constraint &quot;credit_contracts_contract_value_check&quot;
+DETAIL:  Failing row contains (11420e70-9961-496d-bee5-ac3da6cf85d5, CC-00004, tesfaye, 32534534, 0.00, null, 2026-11-18, 4tesddt, DRAFT, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, null, null, null, null, 2026-11-19 20:30:35+03, 2026-11-19 20:30:35+03, 1, [{&quot;id&quot;: &quot;3fc38da5-0e0e-4f41-9a75-57b4e29c30e7&quot;, &quot;fileUrl&quot;: &quot;/api...).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(1064): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:30:35 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(692): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\CreditContractsController.php(1080): App\Controllers\Api\CreditContractsController->addStatusHistory()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:30:35 --> Credit contract create failed: Credit contract creation failed.
+ERROR - 2026-11-19 20:50:31 --> Credit contract list failed: Array to string conERROR - 2026-11-19 20:31:16 --> pg_query(): Query failed: ERROR:  new row for relation &quot;credit_contracts&quot; violates check constraint &quot;credit_contracts_contract_value_check&quot;
+DETAIL:  Failing row contains (b457d93e-4452-4a75-a48e-681c1f1ce5a2, CC-00005, tesfaye, 32534534, 0.00, null, 2026-11-18, 4tesddt, DRAFT, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, null, null, null, null, 2026-11-19 20:31:16+03, 2026-11-19 20:31:16+03, 1, [{&quot;id&quot;: &quot;3fc38da5-0e0e-4f41-9a75-57b4e29c30e7&quot;, &quot;fileUrl&quot;: &quot;/api...).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(1064): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:31:16 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\CreditContractsController.php(692): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\CreditContractsController.php(1080): App\Controllers\Api\CreditContractsController->addStatusHistory()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\CreditContractsController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-19 20:31:16 --> Credit contract create failed: Credit contract creation failed.
+ERROR - 2026-11-19 20:33:18 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-19 20:33:18 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-19 20:33:18 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+version
+ERROR - 2026-11-19 20:50:31 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:50:37 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:50:37 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:52:59 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:53:09 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:53:10 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:53:27 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:53:27 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:57:12 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 20:57:12 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:34 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:37 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:42 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:42 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:43 --> Credit contract list failed: Array to string conversion
+ERROR - 2026-11-19 21:05:43 --> Credit contract list failed: Array to string conversion

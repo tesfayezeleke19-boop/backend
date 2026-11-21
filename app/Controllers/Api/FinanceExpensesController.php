@@ -171,89 +171,148 @@ class FinanceExpensesController extends BaseController
     }
 
     /**
-     * Convert a database record into the frontend expense model.
+     * Load attachment metadata using the ID stored on an expense.
      */
-    private function formatExpense(array $row): array
+    private function formatAttachment(?string $id): ?array
     {
-        $source = strtoupper($row['expense_source'] ?? 'LEGACY');
-        $status = strtoupper($row['status'] ?? 'DRAFT');
+        if ($id === null || $id === '') {
+            return null;
+        }
 
-        $base = (float) $row['amount_excl_vat'];
-        $vat = (float) $row['vat_amount'];
-        $wht = (float) $row['wht_amount'];
-        $gross = (float) $row['total_amount'];
-
-        $history = $this->db->table('expense_status_history')
-            ->where('expense_id', $row['id'])
-            ->orderBy('created_at', 'ASC')
+        $attachment = $this->db->table('attachments')
+            ->where('id', $id)
             ->get()
-            ->getResultArray();
+            ->getRowArray();
+
+        if (!$attachment) {
+            return null;
+        }
 
         return [
-            'id' => $row['id'],
-            'expenseNumber' => $row['expense_number'],
-            'expenseSource' => $source,
-
-            'date' => $row['expense_date'],
-            'category' => $row['expense_type'],
-            'item' => $row['description'],
-
-            'supplierName' => $row['supplier_name'],
-            'supplierTin' => $row['supplier_tin'],
-
-            'amountBeforeVat' => $base,
-            'vatEnabled' => (bool) $row['vat_enabled'],
-            'vatRate' => (float) $row['vat_rate'],
-            'vatAmount' => $vat,
-
-            'whtEnabled' => (bool) $row['wht_enabled'],
-            'whtRate' => (float) $row['wht_rate'],
-            'whtAmount' => $wht,
-
-            // Gross amount including VAT.
-            'amount' => $gross,
-
-            // Amount payable after withholding tax.
-            'totalTransferred' => round($gross - $wht, 2),
-
-            'bank' => $row['bank'],
-            'paymentReference' => $row['payment_reference'],
-            'paymentParty' => $row['payment_party'],
-            'remark' => $row['remark'],
-
-            'status' => $status,
-            'reviewStatus' => $status,
-
-            'isCounted' => (
-                $source !== 'ADMIN' || $status === 'APPROVED'
-            ),
-
-            'submittedBy' => $row['submitted_by'],
-            'submittedAt' => $row['submitted_at'],
-            'reviewedBy' => $row['reviewed_by'],
-            'reviewedAt' => $row['reviewed_at'],
-            'rejectionReason' => $row['rejection_reason'],
-
-            'invoiceAttachmentId' => $row['attachment_id'],
-            'whtAttachmentId' => $row['wht_attachment_id'],
-
-            'createdBy' => $row['created_by'],
-            'createdAt' => $row['created_at'],
-            'updatedAt' => $row['updated_at'],
-            'version' => (int) $row['version'],
-
-            'statusHistory' => array_map(
-                static fn(array $item): array => [
-                    'id' => $item['id'],
-                    'status' => $item['status'],
-                    'changedBy' => $item['changed_by'],
-                    'reason' => $item['reason'],
-                    'createdAt' => $item['created_at'],
-                ],
-                $history
-            ),
+            'id' => $attachment['id'],
+            'fileName' => $attachment['file_name'],
+            'fileUrl' => '',
+            'mimeType' => $attachment['mime_type'],
+            'fileSize' => (int) $attachment['file_size'],
         ];
     }
+
+    /**
+     * Convert a database record into the frontend expense model.
+     */
+    
+/**
+ * Convert a database record into the frontend expense model.
+ */
+private function formatExpense(array $row): array
+{
+    $source = strtoupper($row['expense_source'] ?? 'LEGACY');
+    $status = strtoupper($row['status'] ?? 'DRAFT');
+
+    $base = (float) $row['amount_excl_vat'];
+    $vat = (float) $row['vat_amount'];
+    $wht = (float) $row['wht_amount'];
+    $gross = (float) $row['total_amount'];
+
+    // Standard or Casual classification.
+    // Database column: expense_category.
+    $expenseCategory = strtoupper(
+        trim((string) ($row['expense_category'] ?? ''))
+    );
+
+    // Actual expense type selected from the expense type dropdown.
+    // Database column: expense_type.
+    $expenseType = $row['expense_type'] ?? '';
+
+    $history = $this->db->table('expense_status_history')
+        ->where('expense_id', $row['id'])
+        ->orderBy('created_at', 'ASC')
+        ->get()
+        ->getResultArray();
+
+    return [
+        'id' => $row['id'],
+        'expenseNumber' => $row['expense_number'],
+        'expenseSource' => $source,
+
+        'date' => $row['expense_date'],
+
+        // Actual expense type: Maintenance, Fuel, Rent, etc.
+        'type' => $expenseType,
+
+        // Category classification: STANDARD or CASUAL.
+        'category' => $expenseCategory !== ''
+            ? $expenseCategory
+            : null,
+
+        // Compatibility property: also returns the actual expense type.
+        // It must not duplicate the category.
+        'expenseType' => $expenseType,
+
+        'item' => $row['description'],
+
+        'supplierName' => $row['supplier_name'],
+        'supplierTin' => $row['supplier_tin'],
+
+        'amountBeforeVat' => $base,
+        'vatEnabled' => (bool) $row['vat_enabled'],
+        'vatRate' => (float) $row['vat_rate'],
+        'vatAmount' => $vat,
+
+        'whtEnabled' => (bool) $row['wht_enabled'],
+        'whtRate' => (float) $row['wht_rate'],
+        'whtAmount' => $wht,
+
+        'amount' => $gross,
+        'totalTransferred' => round($gross - $wht, 2),
+
+        'bank' => $row['bank'],
+        'paymentReference' => $row['payment_reference'],
+        'paymentParty' => $row['payment_party'],
+        'remark' => $row['remark'],
+
+        'status' => $status,
+        'reviewStatus' => $status,
+
+        'isCounted' => (
+            $source !== 'ADMIN' || $status === 'APPROVED'
+        ),
+
+        'submittedBy' => $row['submitted_by'],
+        'submittedAt' => $row['submitted_at'],
+        'reviewedBy' => $row['reviewed_by'],
+        'reviewedAt' => $row['reviewed_at'],
+        'rejectionReason' => $row['rejection_reason'],
+
+        'invoiceAttachmentId' => $row['attachment_id'],
+        'whtAttachmentId' => $row['wht_attachment_id'],
+
+        'invoiceAttachment' => $this->formatAttachment(
+            $row['attachment_id'] ?? null
+        ),
+
+        'whtAttachment' => $this->formatAttachment(
+            $row['wht_attachment_id'] ?? null
+        ),
+
+        'createdBy' => $row['created_by'],
+        'createdAt' => $row['created_at'],
+        'updatedAt' => $row['updated_at'],
+        'version' => (int) $row['version'],
+
+        'statusHistory' => array_map(
+            static fn(array $item): array => [
+                'id' => $item['id'],
+                'status' => $item['status'],
+                'changedBy' => $item['changed_by'],
+                'reason' => $item['reason'],
+                'createdAt' => $item['created_at'],
+            ],
+            $history
+        ),
+    ];
+}
+
 
     /**
      * Validate and map frontend input to database columns.
@@ -262,8 +321,14 @@ class FinanceExpensesController extends BaseController
     {
         $date = $input['date'] ?? $input['expenseDate'] ?? null;
 
-        $category = trim(
-            (string) ($input['category'] ?? '')
+        // Ordinary expense dropdown selection.
+        $expenseType = trim(
+            (string) (
+                $input['type']
+                ?? $input['expense_type']
+                ?? $input['category']
+                ?? ''
+            )
         );
 
         $description = trim(
@@ -280,12 +345,12 @@ class FinanceExpensesController extends BaseController
 
         if (
             !$date ||
-            !$category ||
+            !$expenseType ||
             !$description ||
             !is_numeric($base)
         ) {
             throw new \InvalidArgumentException(
-                'Date, category, description, and amount before VAT are required.'
+                'Date, expense type, description, and amount before VAT are required.'
             );
         }
 
@@ -312,10 +377,39 @@ class FinanceExpensesController extends BaseController
             );
         }
 
-        $vatEnabled = filter_var(
-            $input['vatEnabled'] ?? false,
-            FILTER_VALIDATE_BOOLEAN
+        /*
+         * Standard/Casual classification.
+         *
+         * Database column: expense_category.
+         *
+         * Supported frontend field names:
+         * expenseCategory
+         * expense_category
+         * expenseType (existing frontend compatibility)
+         */
+        $expenseCategory = strtoupper(
+            trim((string) (
+                $input['expenseCategory']
+                ?? $input['expense_category']
+                ?? $input['expenseType']
+                ?? 'STANDARD'
+            ))
         );
+
+        if (!in_array($expenseCategory, ['STANDARD', 'CASUAL'], true)) {
+            throw new \InvalidArgumentException(
+                'Expense category must be either STANDARD or CASUAL.'
+            );
+        }
+
+        // Standard expenses have VAT enabled by default.
+        // Casual expenses have VAT disabled by default.
+        $vatEnabled = array_key_exists('vatEnabled', $input)
+            ? filter_var(
+                $input['vatEnabled'],
+                FILTER_VALIDATE_BOOLEAN
+            )
+            : ($expenseCategory === 'STANDARD');
 
         $whtEnabled = filter_var(
             $input['whtEnabled'] ?? false,
@@ -359,7 +453,13 @@ class FinanceExpensesController extends BaseController
 
         return [
             'expense_date' => (string) $date,
-            'expense_type' => $category,
+
+            // Ordinary expense dropdown selection.
+            'expense_type' => $expenseType,
+
+            // Standard or Casual classification.
+            'expense_category' => $expenseCategory,
+
             'description' => $description,
 
             'supplier_name' => $input['supplierName'] ?? null,
@@ -429,6 +529,273 @@ class FinanceExpensesController extends BaseController
     }
 
     /**
+     * POST /api/finance/expenses/attachments/upload
+     */
+    public function uploadAttachment(): ResponseInterface
+    {
+        $denied = $this->authorize(['ADMIN', 'FINANCE']);
+
+        if ($denied) {
+            return $denied;
+        }
+
+        $file = $this->request->getFile('file');
+
+        if (!$file || !$file->isValid() || $file->hasMoved()) {
+            return $this->fail('Choose a valid file to upload.', 422);
+        }
+
+        if ($file->getSize() > 10 * 1024 * 1024) {
+            return $this->fail('File size must not exceed 10 MB.', 422);
+        }
+
+        $mimeType = $file->getMimeType();
+
+        $allowed = [
+            'application/pdf' => 'pdf',
+            'image/jpeg' => 'jpg',
+            'image/png' => 'png',
+            'image/webp' => 'webp',
+        ];
+
+        if (!isset($allowed[$mimeType])) {
+            return $this->fail(
+                'Only PDF, JPG, PNG, and WebP files are allowed.',
+                422
+            );
+        }
+
+        $directory = ROOTPATH . 'file' . DIRECTORY_SEPARATOR . 'expense';
+
+        if (
+            !is_dir($directory) &&
+            !mkdir($directory, 0750, true) &&
+            !is_dir($directory)
+        ) {
+            return $this->fail(
+                'Expense upload directory could not be created.',
+                500
+            );
+        }
+
+        if (!is_writable($directory)) {
+            return $this->fail(
+                'Expense upload directory is not writable by the server.',
+                500
+            );
+        }
+
+        $id = $this->newUuid();
+        $originalName = basename((string) $file->getClientName());
+        $fileSize = (int) $file->getSize();
+        $storedName = $id . '.' . $allowed[$mimeType];
+        $storedPath = $directory . DIRECTORY_SEPARATOR . $storedName;
+
+        try {
+            $file->move($directory, $storedName, true);
+
+            if (!is_file($storedPath)) {
+                throw new \RuntimeException(
+                    'Uploaded file was not found at the destination path.'
+                );
+            }
+
+            $this->db->transBegin();
+
+            $this->db->table('attachments')->insert([
+                'id' => $id,
+                'file_name' => $originalName,
+                'storage_key' => 'file/expense/' . $storedName,
+                'mime_type' => $mimeType,
+                'file_size' => $fileSize,
+                'uploaded_by' => $this->userId(),
+                'created_at' => $this->now(),
+            ]);
+
+            if ($this->db->transStatus() === false) {
+                $this->db->transRollback();
+
+                throw new \RuntimeException(
+                    'Could not save attachment metadata.'
+                );
+            }
+
+            $this->db->transCommit();
+
+            return $this->respondJson([
+                'id' => $id,
+                'fileName' => $originalName,
+                'mimeType' => $mimeType,
+                'fileSize' => $fileSize,
+            ], 201);
+        } catch (Throwable $e) {
+            if ($this->db->transStatus() !== false) {
+                $this->db->transRollback();
+            }
+
+            if (is_file($storedPath)) {
+                @unlink($storedPath);
+            }
+
+            log_message(
+                'error',
+                'Finance expense attachment upload failed: {message}',
+                [
+                    'message' => $e->getMessage(),
+                ]
+            );
+
+            return $this->fail(
+                'File upload failed. Check the server log.',
+                500
+            );
+        }
+    }
+
+    /**
+     * GET /api/finance/expenses/attachments/{id}
+     */
+    public function viewAttachment($id = null): ResponseInterface
+    {
+        if (
+            $id === null ||
+            !preg_match(
+                '/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',
+                (string) $id
+            )
+        ) {
+            return $this->fail('Attachment not found.', 404);
+        }
+
+        $denied = $this->authorize(['ADMIN', 'FINANCE']);
+
+        if ($denied) {
+            return $denied;
+        }
+
+        $attachment = $this->db->table('attachments')
+            ->select('id, storage_key, mime_type, file_name')
+            ->where('id', (string) $id)
+            ->get()
+            ->getRowArray();
+
+        if (!$attachment) {
+            return $this->fail('Attachment not found.', 404);
+        }
+
+        $storageKey = (string) ($attachment['storage_key'] ?? '');
+
+        if (!preg_match(
+            '/^file\/expense\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.(pdf|jpg|png|webp)$/i',
+            $storageKey
+        )) {
+            log_message(
+                'error',
+                'Invalid expense attachment storage key: ' . $storageKey
+            );
+
+            return $this->fail(
+                'Invalid attachment storage path.',
+                404
+            );
+        }
+
+        $directory = ROOTPATH
+            . 'file'
+            . DIRECTORY_SEPARATOR
+            . 'expense';
+
+        $filePath = $directory
+            . DIRECTORY_SEPARATOR
+            . basename($storageKey);
+
+        if (!is_file($filePath) || !is_readable($filePath)) {
+            log_message(
+                'error',
+                'Expense attachment file missing: ' . $filePath
+            );
+
+            return $this->fail(
+                'Attachment file not found on the server.',
+                404
+            );
+        }
+
+        $mimeType = (string) ($attachment['mime_type'] ?? '');
+
+        $allowedTypes = [
+            'application/pdf',
+            'image/jpeg',
+            'image/png',
+            'image/webp',
+        ];
+
+        if (!in_array($mimeType, $allowedTypes, true)) {
+            return $this->fail(
+                'Unsupported attachment type.',
+                415
+            );
+        }
+
+        $content = file_get_contents($filePath);
+
+        if ($content === false) {
+            log_message(
+                'error',
+                'Unable to read expense attachment: ' . $filePath
+            );
+
+            return $this->fail(
+                'Unable to read attachment.',
+                500
+            );
+        }
+
+        $fileName = basename(
+            str_replace(
+                ["\r", "\n", '"'],
+                '',
+                (string) ($attachment['file_name'] ?? 'attachment')
+            )
+        );
+
+        log_message(
+            'debug',
+            'Expense attachment original size: ' . strlen($content)
+        );
+
+        log_message(
+            'debug',
+            'Expense attachment original SHA256: ' . hash('sha256', $content)
+        );
+
+        log_message(
+            'debug',
+            'Expense attachment original first bytes: '
+            . bin2hex(substr($content, 0, 8))
+        );
+
+        while (ob_get_level() > 0) {
+            ob_end_clean();
+        }
+
+        return $this->response
+            ->setStatusCode(200)
+            ->setHeader('Content-Type', $mimeType)
+            ->setHeader(
+                'Content-Disposition',
+                'inline; filename="' . $fileName . '"'
+            )
+            ->setHeader(
+                'Content-Length',
+                (string) strlen($content)
+            )
+            ->setHeader('X-Content-Type-Options', 'nosniff')
+            ->setHeader('Cache-Control', 'private, no-store')
+            ->setBody($content);
+    }
+
+    /**
      * GET /api/finance/expenses
      */
     public function index(): ResponseInterface
@@ -461,8 +828,6 @@ class FinanceExpensesController extends BaseController
 
     /**
      * GET /api/finance/expenses/{id}
-     *
-     * Signature is compatible with ResourceController.
      */
     public function show($id = null)
     {
@@ -499,7 +864,6 @@ class FinanceExpensesController extends BaseController
         $input = $this->body();
         $role = $this->role();
 
-        // Determine source on the server, never trust the client.
         $source = $role === 'FINANCE' ? 'FINANCE' : 'ADMIN';
         $status = $source === 'FINANCE' ? 'APPROVED' : 'DRAFT';
 
@@ -577,14 +941,15 @@ class FinanceExpensesController extends BaseController
                 'Expense creation failed: ' . $e->getMessage()
             );
 
-            return $this->fail('Could not create expense.', 500);
+            return $this->fail(
+                'Could not create expense.',
+                500
+            );
         }
     }
 
     /**
      * PUT /api/finance/expenses/{id}
-     *
-     * Signature is compatible with ResourceController.
      */
     public function update($id = null)
     {
@@ -687,7 +1052,10 @@ class FinanceExpensesController extends BaseController
 
             return $updated
                 ? $this->respondJson($this->formatExpense($updated))
-                : $this->fail('Updated expense could not be retrieved.', 500);
+                : $this->fail(
+                    'Updated expense could not be retrieved.',
+                    500
+                );
         } catch (\InvalidArgumentException $e) {
             $this->db->transRollback();
 
@@ -700,7 +1068,10 @@ class FinanceExpensesController extends BaseController
                 'Expense update failed: ' . $e->getMessage()
             );
 
-            return $this->fail('Could not update expense.', 500);
+            return $this->fail(
+                'Could not update expense.',
+                500
+            );
         }
     }
 
@@ -757,7 +1128,10 @@ class FinanceExpensesController extends BaseController
                 'version' => ((int) $row['version']) + 1,
             ]);
 
-        if ($this->db->transStatus() === false || $this->db->affectedRows() !== 1) {
+        if (
+            $this->db->transStatus() === false ||
+            $this->db->affectedRows() !== 1
+        ) {
             $this->db->transRollback();
 
             return $this->fail(
@@ -775,7 +1149,10 @@ class FinanceExpensesController extends BaseController
         if ($this->db->transStatus() === false) {
             $this->db->transRollback();
 
-            return $this->fail('Could not submit expense.', 500);
+            return $this->fail(
+                'Could not submit expense.',
+                500
+            );
         }
 
         $this->db->transCommit();
@@ -784,7 +1161,10 @@ class FinanceExpensesController extends BaseController
 
         return $updated
             ? $this->respondJson($this->formatExpense($updated))
-            : $this->fail('Submitted expense could not be retrieved.', 500);
+            : $this->fail(
+                'Submitted expense could not be retrieved.',
+                500
+            );
     }
 
     /**
@@ -857,7 +1237,10 @@ class FinanceExpensesController extends BaseController
                 'version' => ((int) $row['version']) + 1,
             ]);
 
-        if ($this->db->transStatus() === false || $this->db->affectedRows() !== 1) {
+        if (
+            $this->db->transStatus() === false ||
+            $this->db->affectedRows() !== 1
+        ) {
             $this->db->transRollback();
 
             return $this->fail(
@@ -866,12 +1249,19 @@ class FinanceExpensesController extends BaseController
             );
         }
 
-        $this->history($id, 'APPROVED', 'Approved by Finance');
+        $this->history(
+            $id,
+            'APPROVED',
+            'Approved by Finance'
+        );
 
         if ($this->db->transStatus() === false) {
             $this->db->transRollback();
 
-            return $this->fail('Could not approve expense.', 500);
+            return $this->fail(
+                'Could not approve expense.',
+                500
+            );
         }
 
         $this->db->transCommit();
@@ -880,7 +1270,10 @@ class FinanceExpensesController extends BaseController
 
         return $updated
             ? $this->respondJson($this->formatExpense($updated))
-            : $this->fail('Approved expense could not be retrieved.', 500);
+            : $this->fail(
+                'Approved expense could not be retrieved.',
+                500
+            );
     }
 
     /**
@@ -954,7 +1347,10 @@ class FinanceExpensesController extends BaseController
                 'version' => ((int) $row['version']) + 1,
             ]);
 
-        if ($this->db->transStatus() === false || $this->db->affectedRows() !== 1) {
+        if (
+            $this->db->transStatus() === false ||
+            $this->db->affectedRows() !== 1
+        ) {
             $this->db->transRollback();
 
             return $this->fail(
@@ -968,7 +1364,10 @@ class FinanceExpensesController extends BaseController
         if ($this->db->transStatus() === false) {
             $this->db->transRollback();
 
-            return $this->fail('Could not reject expense.', 500);
+            return $this->fail(
+                'Could not reject expense.',
+                500
+            );
         }
 
         $this->db->transCommit();
@@ -977,13 +1376,14 @@ class FinanceExpensesController extends BaseController
 
         return $updated
             ? $this->respondJson($this->formatExpense($updated))
-            : $this->fail('Rejected expense could not be retrieved.', 500);
+            : $this->fail(
+                'Rejected expense could not be retrieved.',
+                500
+            );
     }
 
     /**
      * DELETE /api/finance/expenses/{id}
-     *
-     * Signature is compatible with ResourceController.
      */
     public function delete($id = null)
     {
@@ -1042,7 +1442,10 @@ class FinanceExpensesController extends BaseController
         if ($this->db->transStatus() === false) {
             $this->db->transRollback();
 
-            return $this->fail('Could not delete expense.', 500);
+            return $this->fail(
+                'Could not delete expense.',
+                500
+            );
         }
 
         $this->db->transCommit();

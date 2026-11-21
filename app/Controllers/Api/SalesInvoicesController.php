@@ -127,29 +127,56 @@ class SalesInvoicesController extends ResourceController
         );
     }
 
-    private function toDate(mixed $value): string
-    {
-        if ($value === null || $value === '') {
-            return date('Y-m-d');
-        }
-
-        if (is_numeric($value)) {
-            $timestamp = (int) $value;
-
-            // JavaScript Date.now() values are in milliseconds.
-            if ($timestamp > 9999999999) {
-                $timestamp = (int) floor($timestamp / 1000);
-            }
-
-            return date('Y-m-d', $timestamp);
-        }
-
-        $parsed = strtotime((string) $value);
-
-        return $parsed === false
-            ? date('Y-m-d')
-            : date('Y-m-d', $parsed);
+    
+private function toDate(mixed $value): string
+{
+    if ($value === null || $value === '') {
+        return (new \DateTimeImmutable(
+            'now',
+            new \DateTimeZone('Africa/Addis_Ababa')
+        ))->format('Y-m-d');
     }
+
+    // Date-only values must remain unchanged.
+    // Do not parse them as timestamps.
+    if (
+        is_string($value) &&
+        preg_match('/^\d{4}-\d{2}-\d{2}$/', trim($value))
+    ) {
+        return trim($value);
+    }
+
+    if (is_numeric($value)) {
+        $timestamp = (int) $value;
+
+        // JavaScript timestamps are in milliseconds.
+        if ($timestamp > 9999999999) {
+            $timestamp = (int) floor($timestamp / 1000);
+        }
+
+        // Interpret the timestamp using Ethiopia's timezone,
+        // not the server's default timezone.
+        return (new \DateTimeImmutable(
+            '@' . $timestamp
+        ))
+            ->setTimezone(new \DateTimeZone('Africa/Addis_Ababa'))
+            ->format('Y-m-d');
+    }
+
+    try {
+        return (new \DateTimeImmutable(
+            (string) $value,
+            new \DateTimeZone('Africa/Addis_Ababa')
+        ))
+            ->setTimezone(new \DateTimeZone('Africa/Addis_Ababa'))
+            ->format('Y-m-d');
+    } catch (\Throwable $e) {
+        throw new \InvalidArgumentException(
+            'The supplied date is invalid.'
+        );
+    }
+}
+
 
     private function toMilliseconds(mixed $value): ?int
     {
@@ -235,126 +262,164 @@ class SalesInvoicesController extends ResourceController
      * Financial calculations
      * ----------------------------------------------------------- */
 
-    private function calculate(
-        array $orders,
-        bool $withholdingEnabled
-    ): array {
-        $subtotal = 0.0;
-        $normalizedOrders = [];
+    
+private function calculate(
+    array $orders,
+    bool $withholdingEnabled
+): array {
+    $subtotal = 0.0;
+    $normalizedOrders = [];
 
-        foreach (array_values($orders) as $index => $order) {
-            if (!is_array($order)) {
-                throw new \InvalidArgumentException(
-                    'An invoice order has an invalid format.'
-                );
-            }
-
-            $quantity = (float) ($order['quantity'] ?? 0);
-            $unitPrice = (float) ($order['unitPrice'] ?? 0);
-
-            $aggregate = trim((string) ($order['aggregate'] ?? ''));
-
-            if ($aggregate === '') {
-                throw new \InvalidArgumentException(
-                    'An order must have an aggregate type.'
-                );
-            }
-
-            // New invoice lines must use an active name from aggregate_types.
-            // Legacy codes remain accepted so historical invoices can still be edited.
-            $aggregateType = $this->db->table('aggregate_types')
-                ->select('id, name')
-                ->where('name', $aggregate)
-                ->where('is_active', true)
-                ->get()
-                ->getRowArray();
-
-            if (!$aggregateType && !in_array($aggregate, ['00', '01', '02'], true)) {
-                throw new \InvalidArgumentException(
-                    'An order has an invalid or inactive aggregate type.'
-                );
-            }
-
-            if ($aggregateType) {
-                $aggregate = (string) $aggregateType['name'];
-            }
-
-            if (!is_finite($quantity) || !is_finite($unitPrice)) {
-                throw new \InvalidArgumentException(
-                    'Order quantities and prices must be valid numbers.'
-                );
-            }
-
-            if ($quantity <= 0 || $unitPrice < 0) {
-                throw new \InvalidArgumentException(
-                    'Order quantity must be greater than zero and unit price cannot be negative.'
-                );
-            }
-
-            $lineTotal = round($quantity * $unitPrice, 2);
-
-            $unit = trim((string) ($order['unit'] ?? ''));
-
-            if ($unit === '') {
-                $unit = 'm³';
-            }
-
-            $royaltyOrderNumber =
-                (int) ($order['royaltyOrderNumber'] ?? 0);
-
-            if ($royaltyOrderNumber <= 0) {
-                $royaltyOrderNumber = $index + 1;
-            }
-
-            $normalizedOrders[] = [
-                'aggregate' => $aggregate,
-                'quantity' => $quantity,
-                'unit' => $unit,
-                'unitPrice' => $unitPrice,
-                'lineTotalExclVat' => $lineTotal,
-                'royaltyOrderNumber' => $royaltyOrderNumber,
-                'royaltyInvoiceNumber' =>
-                    trim((string) ($order['royaltyInvoiceNumber'] ?? ''))
-                        !== ''
-                        ? trim((string) $order['royaltyInvoiceNumber'])
-                        : null,
-                'contractOrderId' =>
-                    $order['contractOrderId'] ?? null,
-                'creditContractOrderId' =>
-                    $order['creditContractOrderId'] ?? null,
-                'orderDate' =>
-                    !empty($order['orderDate'])
-                        ? $this->toDate($order['orderDate'])
-                        : null,
-            ];
-
-            $subtotal += $lineTotal;
+    foreach (array_values($orders) as $index => $order) {
+        if (!is_array($order)) {
+            throw new \InvalidArgumentException(
+                'An invoice order has an invalid format.'
+            );
         }
 
-        $subtotal = round($subtotal, 2);
-        $vat = round($subtotal * 0.15, 2);
-        $total = round($subtotal + $vat, 2);
+        $quantity = (float) ($order['quantity'] ?? 0);
+        $unitPrice = (float) ($order['unitPrice'] ?? 0);
 
-        $withholdingRate = $withholdingEnabled ? 0.03 : 0.0;
-        $withholdingAmount = round(
-            $total * $withholdingRate,
-            2
-        );
+        $aggregate = trim((string) ($order['aggregate'] ?? ''));
 
-        return [
-            'orders' => $normalizedOrders,
-            'subtotalExclVat' => $subtotal,
-            'totalVat' => $vat,
-            'totalPriceInclVat' => $total,
-            'withholdingEnabled' => $withholdingEnabled,
-            'withholdingRate' => $withholdingRate,
-            'withholdingAmount' => $withholdingAmount,
-            'netAmountAfterWithholding' => round(
-                $total - $withholdingAmount,
-                2
-            ),
+        if ($aggregate === '') {
+            throw new \InvalidArgumentException(
+                'An order must have an aggregate type.'
+            );
+        }
+
+        $aggregateType = $this->db->table('aggregate_types')
+            ->select('id, name')
+            ->where('name', $aggregate)
+            ->where('is_active', true)
+            ->get()
+            ->getRowArray();
+
+        if (
+            !$aggregateType &&
+            !in_array($aggregate, ['00', '01', '02'], true)
+        ) {
+            throw new \InvalidArgumentException(
+                'An order has an invalid or inactive aggregate type.'
+            );
+        }
+
+        if ($aggregateType) {
+            $aggregate = (string) $aggregateType['name'];
+        }
+
+        if (!is_finite($quantity) || !is_finite($unitPrice)) {
+            throw new \InvalidArgumentException(
+                'Order quantities and prices must be valid numbers.'
+            );
+        }
+
+        if ($quantity <= 0 || $unitPrice < 0) {
+            throw new \InvalidArgumentException(
+                'Order quantity must be greater than zero and unit price cannot be negative.'
+            );
+        }
+
+        $lineTotal = round($quantity * $unitPrice, 2);
+
+        $unit = trim((string) ($order['unit'] ?? ''));
+
+        if ($unit === '') {
+            $unit = 'm³';
+        }
+
+        $royaltyOrderNumber =
+            (int) ($order['royaltyOrderNumber'] ?? 0);
+
+        if ($royaltyOrderNumber <= 0) {
+            $royaltyOrderNumber = $index + 1;
+        }
+
+        /*
+         * Preserve the contract order's original business date.
+         *
+         * The date is already a calendar date, so do not convert it
+         * through a server timezone or shift it to another day.
+         */
+        $orderDate = null;
+
+        if (
+            array_key_exists('orderDate', $order) &&
+            $order['orderDate'] !== null &&
+            $order['orderDate'] !== ''
+        ) {
+            $rawOrderDate = $order['orderDate'];
+
+            if (
+                is_string($rawOrderDate) &&
+                preg_match(
+                    '/^\d{4}-\d{2}-\d{2}$/',
+                    trim($rawOrderDate)
+                )
+            ) {
+                $orderDate = trim($rawOrderDate);
+            } elseif (is_numeric($rawOrderDate)) {
+                $timestamp = (int) $rawOrderDate;
+
+                if ($timestamp > 9999999999) {
+                    $timestamp = (int) floor($timestamp / 1000);
+                }
+
+                $orderDate = gmdate('Y-m-d', $timestamp);
+            } else {
+                throw new \InvalidArgumentException(
+                    'An order contains an invalid order date.'
+                );
+            }
+        }
+
+        $normalizedOrders[] = [
+            'aggregate' => $aggregate,
+            'quantity' => $quantity,
+            'unit' => $unit,
+            'unitPrice' => $unitPrice,
+            'lineTotalExclVat' => $lineTotal,
+            'royaltyOrderNumber' => $royaltyOrderNumber,
+            'royaltyInvoiceNumber' =>
+                trim((string) ($order['royaltyInvoiceNumber'] ?? '')) !== ''
+                    ? trim((string) $order['royaltyInvoiceNumber'])
+                    : null,
+            'contractOrderId' =>
+                $order['contractOrderId'] ?? null,
+            'creditContractOrderId' =>
+                $order['creditContractOrderId'] ?? null,
+            'orderDate' => $orderDate,
         ];
+
+        $subtotal += $lineTotal;
     }
+
+    $subtotal = round($subtotal, 2);
+    $vat = round($subtotal * 0.15, 2);
+    $total = round($subtotal + $vat, 2);
+
+    $withholdingRate = $withholdingEnabled ? 0.03 : 0.0;
+
+    $withholdingAmount = round(
+        $total * $withholdingRate,
+        2
+    );
+
+    return [
+        'orders' => $normalizedOrders,
+        'subtotalExclVat' => $subtotal,
+        'totalVat' => $vat,
+        'totalPriceInclVat' => $total,
+        'withholdingEnabled' => $withholdingEnabled,
+        'withholdingRate' => $withholdingRate,
+        'withholdingAmount' => $withholdingAmount,
+        'netAmountAfterWithholding' => round(
+            $total - $withholdingAmount,
+            2
+        ),
+    ];
+}
+
 
     private function insertLines(
         string $invoiceId,
@@ -552,6 +617,7 @@ private function loadInvoice(string $id): ?array
 
         // Standard contract relationship ONLY.
         'contractId' => $invoice['contract_id'] ?? null,
+        'isContract' => (bool)($invoice['is_contract'] ?? false),
 
         // Credit contract relationship ONLY.
         'creditContractId' =>
@@ -830,6 +896,7 @@ private function loadInvoice(string $id): ?array
                 trim((string) $customer['tin']),
             'fs_no' => trim((string) $input['fsNo']),
             'contract_id' => $contractId,
+            'is_contract' => $contractId !== null,
             'credit_contract_id' => $creditContractId,
             'invoice_date' => $this->toDate(
                 $input['date'] ?? date('Y-m-d')
@@ -875,6 +942,10 @@ private function loadInvoice(string $id): ?array
                 ->where('id', $id)
                 ->update($data);
 
+            $oldLineIds = $this->db->table('sales_invoice_lines')->select('id')->where('invoice_id', $id)->get()->getResultArray();
+            foreach ($oldLineIds as $oldLine) {
+                $this->db->table('contract_orders')->where('sales_invoice_line_id', $oldLine['id'])->update(['sales_invoice_line_id' => null, 'updated_at' => date('Y-m-d H:i:s')]);
+            }
             $this->db->table('sales_invoice_lines')
                 ->where('invoice_id', $id)
                 ->delete();
@@ -1193,18 +1264,54 @@ private function loadInvoice(string $id): ?array
             $changes['payment_confirmed_by'] = $actorId;
         }
 
-        // Conditional update protects against simultaneous status changes.
-        $builder = $this->db->table('sales_invoices')
-            ->where('id', $id)
-            ->whereIn('status', $allowedStatuses);
+        // Update invoice and linked contract order in one transaction.
+        $this->db->transBegin();
+        try {
+            $builder = $this->db->table('sales_invoices')
+                ->where('id', $id)
+                ->whereIn('status', $allowedStatuses);
+            $builder->update($changes);
+            if ($this->db->affectedRows() !== 1) {
+                throw new \DomainException('The invoice status changed concurrently. Refresh and try again.');
+            }
 
-        $builder->update($changes);
+            if (!empty($invoice['contract_id']) && !empty($invoice['is_contract'])) {
+                $lines = $this->db->table('sales_invoice_lines')
+                    ->where('invoice_id', $id)
+                    ->where('contract_order_id IS NOT NULL', null, false)
+                    ->get()->getResultArray();
+                foreach ($lines as $line) {
+                    $order = $this->db->query('SELECT * FROM contract_orders WHERE id = ? FOR UPDATE', [$line['contract_order_id']])->getRowArray();
+                    if (!$order || (string) $order['contract_id'] !== (string) $invoice['contract_id']) {
+                        throw new \RuntimeException('The invoice contains an invalid linked contract order.');
+                    }
+                    if ($newStatus === 'FINANCE_APPROVED') {
+                        if (strtoupper((string) $order['status']) !== 'PENDING') {
+                            throw new \DomainException('Only pending contract orders can be approved.');
+                        }
+                        $this->db->table('contract_orders')->where('id', $order['id'])->update([
+                            'status' => 'COMPLETED', 'completed_by' => $actorId,
+                            'completed_at' => $now, 'updated_at' => $now,
+                        ]);
+                    } elseif ($newStatus === 'PAYMENT_CONFIRMED') {
+                        if (strtoupper((string) $order['status']) !== 'COMPLETED') {
+                            throw new \DomainException('Only approved contract orders can have payment confirmed.');
+                        }
+                        $this->db->table('contract_orders')->where('id', $order['id'])->update([
+                            'status' => 'PAYMENT_CONFIRMED', 'updated_at' => $now,
+                        ]);
+                    }
+                    // Rejection intentionally leaves the order PENDING so it can be edited and resubmitted.
+                }
+            }
 
-        if ($this->db->affectedRows() !== 1) {
-            return $this->fail(
-                'The invoice status changed concurrently. Refresh and try again.',
-                409
-            );
+            if ($this->db->transStatus() === false) throw new \RuntimeException('Database transaction failed.');
+            $this->db->transCommit();
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+            if ($e instanceof \DomainException) return $this->fail($e->getMessage(), 409);
+            log_message('error', 'Sales invoice status transition failed: ' . $e->getMessage());
+            return $this->failServerError('Unable to update invoice status and synchronize its contract order.');
         }
 
         return $this->respond([

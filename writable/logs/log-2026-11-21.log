@@ -1,0 +1,1104 @@
+ERROR - 2026-11-21 05:53:36 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 05:53:36 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 05:53:36 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 05:56:56 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 05:56:56 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 05:56:56 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 05:57:12 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;sales_invoice_lines&quot; violates RESTRICT setting of foreign key constraint &quot;royalty_batch_items_invoice_line_id_fkey&quot; on table &quot;royalty_batch_items&quot;
+DETAIL:  Key (id)=(808cc43c-4128-4e9c-85e1-4e5feac3754a) is referenced from table &quot;royalty_batch_items&quot;.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1471): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:13 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1744): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1475): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:13 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1480): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:13 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1511): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:13 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(424): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1585): App\Controllers\Api\ContractOrdersController->getContract()
+ 6 APPPATH\Controllers\Api\ContractOrdersController.php(1512): App\Controllers\Api\ContractOrdersController->applyReadiness()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:13 --> Contract order deletion failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-21 05:57:46 --> pg_query(): Query failed: ERROR:  update or delete on table &quot;sales_invoice_lines&quot; violates RESTRICT setting of foreign key constraint &quot;royalty_batch_items_invoice_line_id_fkey&quot; on table &quot;royalty_batch_items&quot;
+DETAIL:  Key (id)=(808cc43c-4128-4e9c-85e1-4e5feac3754a) is referenced from table &quot;royalty_batch_items&quot;.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1471): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:46 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1744): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1475): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:46 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1480): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:46 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2874): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH\Database\Postgre\Builder.php(242): CodeIgniter\Database\BaseBuilder->delete()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1511): CodeIgniter\Database\Postgre\Builder->delete()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:46 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(424): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1585): App\Controllers\Api\ContractOrdersController->getContract()
+ 6 APPPATH\Controllers\Api\ContractOrdersController.php(1512): App\Controllers\Api\ContractOrdersController->applyReadiness()
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->cancelOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 05:57:46 --> Contract order deletion failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-21 05:58:09 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 05:58:09 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 05:58:09 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 05:58:40 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 05:58:40 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 05:58:40 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:00:37 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:00:37 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:00:37 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:01:52 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:01:52 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:01:52 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:01:59 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:01:59 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:01:59 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:03:11 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:03:11 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:03:11 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:04:56 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:04:56 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:04:56 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:05:15 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:05:15 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:05:15 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:06:31 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:06:31 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:06:31 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:07:49 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:07:49 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:07:49 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:08:56 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:08:56 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:08:56 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:10:09 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:10:09 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:10:09 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 06:10:34 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:10:34 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:10:34 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+DEBUG - 2026-11-21 06:21:29 --> Expense attachment original size: 780527
+DEBUG - 2026-11-21 06:21:29 --> Expense attachment original SHA256: 93792988f9fbfdcb8f89d7cf62af8deeeb1e787e85c30c9c9da25d5b73d1a65a
+DEBUG - 2026-11-21 06:21:29 --> Expense attachment original first bytes: 89504e470d0a1a0a
+DEBUG - 2026-11-21 06:21:30 --> Expense attachment original size: 780527
+DEBUG - 2026-11-21 06:21:30 --> Expense attachment original SHA256: 93792988f9fbfdcb8f89d7cf62af8deeeb1e787e85c30c9c9da25d5b73d1a65a
+DEBUG - 2026-11-21 06:21:30 --> Expense attachment original first bytes: 89504e470d0a1a0a
+WARNING - 2026-11-21 06:21:57 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:21:57 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:21:57 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:21:57 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 06:23:05 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 06:23:05 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 06:23:05 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+WARNING - 2026-11-21 06:30:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:05 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:07 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:07 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:08 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:08 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:09 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:30:09 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:32:31 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:32:31 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:32:32 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 06:32:32 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 12:38:55 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:38:55 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:38:55 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:39:15 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:39:15 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:39:15 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:48:05 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:48:05 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:48:05 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:55:15 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:55:16 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:55:16 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:57:47 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:57:47 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:57:47 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:57:55 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:57:55 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:57:55 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:58:13 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:58:13 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:58:13 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 12:59:51 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 12:59:51 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 12:59:51 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:00:01 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:00:01 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:00:01 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:00:20 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:00:20 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:00:20 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:01:11 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:01:11 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:01:11 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:03:58 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:03:58 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:03:58 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:04:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:04:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:04:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:05:13 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:05:13 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:05:13 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:05:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:05:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:05:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:22:37 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:22:37 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:22:37 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:22:48 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:22:48 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:22:48 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:24:13 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:24:13 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:24:13 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:24:26 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:24:27 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:24:27 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:24:53 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:24:53 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:24:53 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:39:20 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:39:20 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:39:20 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:39:22 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:39:22 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:39:22 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:41:04 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:41:04 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:41:04 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:41:25 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:41:25 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:41:25 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:42:52 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:42:52 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:42:52 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 13:48:07 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 13:48:13 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:48:13 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:48:13 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 13:49:02 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 13:49:02 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 13:49:02 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:01:24 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 14:01:24 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 14:01:24 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 14:01:25 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:01:25 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:01:25 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:02:08 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:02:08 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:02:08 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:04:11 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:04:11 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:04:11 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:07:55 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:07:55 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:07:55 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:19:14 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:19:14 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:19:14 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 14:23:02 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:23:02+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:23:02+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:23:03 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:23:16 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:23:16+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:23:16+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:23:16 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:23:44 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:23:44+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:23:44+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:23:44 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:25:22 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:25:22+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:25:22+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:25:22 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:25:51 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:25:51+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:25:51+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:25:51 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:29:43 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contracts&quot; violates check constraint &quot;contracts_status_check&quot;
+DETAIL:  Failing row contains (36c0aca2-32f9-4b54-886f-cd9a3545d673, CONTRACT-0010, null, te, dsf, 12345.00, fghfg, 2026-11-20, ACTIVE, fdg, 3e21fd64-cce8-4012-948c-f76387af3215, 2026-11-21 14:29:43+03, 3e21fd64-cce8-4012-948c-f76387af3215, null, null, null, null, f, null, null, null, null, null, null, null, 2026-11-21 14:22:47+03, 2026-11-21 14:29:43+03, 2, null, null, null, null).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2540): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1071): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:29:43 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(455): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1079): App\Controllers\Api\ContractOrdersController->recordContractStatus()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->activate()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 14:35:29 --> CONTRACT ATTACHMENT: Original size = 991554
+ERROR - 2026-11-21 14:35:29 --> CONTRACT ATTACHMENT: Original SHA256 = 9a7cd4681362c9644a26c802602def167ed2ad1b3606637e3acc26117ac5796e
+ERROR - 2026-11-21 14:35:29 --> CONTRACT ATTACHMENT: Original first bytes = 255044462d312e35
+ERROR - 2026-11-21 14:40:15 --> CONTRACT ATTACHMENT: Original size = 1414658
+ERROR - 2026-11-21 14:40:15 --> CONTRACT ATTACHMENT: Original SHA256 = 90992e78cdf8f9ae71f272a867c065feab51567f74c17a82c8446245884fd34b
+ERROR - 2026-11-21 14:40:15 --> CONTRACT ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-21 18:30:19 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 18:30:19 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 18:30:19 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 18:30:22 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 18:30:22 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 18:30:22 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 18:30:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 18:30:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 18:30:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+WARNING - 2026-11-21 18:46:09 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:09 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:11 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:11 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:11 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:11 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:12 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:46:12 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:55:03 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:55:03 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:55:04 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:55:04 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:33 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:33 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:34 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:34 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:54 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:54 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:55 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 18:57:55 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:26 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:26 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:27 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:27 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:28 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:28 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:29 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(983): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1220): App\Controllers\Api\FinanceMonthlyInventoryReportsController->isValidPeriod('2019-02')
+ 4 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 5 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 6 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 7 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 9 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+WARNING - 2026-11-21 19:14:29 --> [DEPRECATED] Calling IntlCalendar::set() with more than 2 arguments is deprecated, use either IntlCalendar::setDate() or IntlCalendar::setDateTime() instead in APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php on line 1027.
+ 1 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1027): IntlCalendar->set(2019, 1, 1, 0, 0, 0)
+ 2 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(1222): App\Controllers\Api\FinanceMonthlyInventoryReportsController->ethiopianPeriodStartDate('2019-02')
+ 3 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(96): App\Controllers\Api\FinanceMonthlyInventoryReportsController->serializeReport([...])
+ 4 [internal function]: App\Controllers\Api\FinanceMonthlyInventoryReportsController->{closure:App\Controllers\Api\FinanceMonthlyInventoryReportsController::index():96}([...])
+ 5 APPPATH\Controllers\Api\FinanceMonthlyInventoryReportsController.php(95): array_map(Object(Closure), [...])
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\FinanceMonthlyInventoryReportsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\FinanceMonthlyInventoryReportsController))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:11:35 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-21 20:12:32 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46

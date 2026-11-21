@@ -1,0 +1,146 @@
+ERROR - 2026-11-15 12:09:50 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: connection to server at &quot;localhost&quot; (::1), port 5432 failed: fe_sendauth: no password supplied in D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:93
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(93): pg_connect()
+#2 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(550): CodeIgniter\Database\Postgre\Connection->connect()
+#3 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(792): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+#5 D:\projects\erp\backend\app\Controllers\Api\AuthController.php(39): CodeIgniter\Database\BaseBuilder->get()
+#6 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(974): App\Controllers\Api\AuthController->login()
+#7 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+#8 D:\projects\erp\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+#9 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 D:\projects\erp\backend\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 D:\projects\erp\backend\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#12 D:\projects\erp\backend\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-11-15 12:09:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: connection to server at &quot;localhost&quot; (::1), port 5432 failed: fe_sendauth: no password supplied
+[Method: POST, Route: api/auth/login]
+in SYSTEMPATH\Database\BaseConnection.php on line 601.
+ 1 SYSTEMPATH\Database\BaseConnection.php(792): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH\Controllers\Api\AuthController.php(39): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\AuthController->login()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-15 12:13:52 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:13:52 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:13:52 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:13:53 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:13:53 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:13:53 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:14:20 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:14:24 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:14:24 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:14:24 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:14:25 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:14:25 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:14:25 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:16:49 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:27:13 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:27:37 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:27:48 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:27:58 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:28:00 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:28:20 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:45:40 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original size = 141095
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original SHA256 = bf8330e314d7371b146ecc3ad9a92e3403be2309ec4d53f74602f0d059255525
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original size = 1002952
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original SHA256 = be44e428d77e3c0824d2cd02902c9f75b70b257f71d27188b2a9171fcd531f63
+ERROR - 2026-11-15 12:45:41 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 12:45:59 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-15 18:43:40 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+CRITICAL - 2026-11-15 20:10:45 --> ErrorException: Declaration of App\Controllers\Api\AttendanceSettingsController::show() must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: CLI, Route: routes]
+in APPPATH\Controllers\Api\AttendanceSettingsController.php on line 22.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-15 20:32:14 --> ErrorException: Declaration of App\Controllers\Api\AttendanceSettingsController::show() must be compatible with CodeIgniter\RESTful\ResourceController::show($id = null)
+[Method: CLI, Route: routes]
+in APPPATH\Controllers\Api\AttendanceSettingsController.php on line 22.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-15 20:35:43 --> ErrorException: Declaration of App\Controllers\Api\AttendanceSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: CLI, Route: routes]
+in APPPATH\Controllers\Api\AttendanceSettingsController.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-15 20:37:02 --> ErrorException: Declaration of App\Controllers\Api\AttendanceSettingsController::update() must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+[Method: CLI, Route: routes]
+in APPPATH\Controllers\Api\AttendanceSettingsController.php on line 49.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-15 20:38:22 --> ErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script
+[Method: CLI, Route: routes]
+in APPPATH\Controllers\Api\AttendanceSettingsController.php on line 3.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

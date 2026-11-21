@@ -1,0 +1,573 @@
+ERROR - 2026-11-18 09:49:04 --> ATTACHMENT: Original size = 780527
+ERROR - 2026-11-18 09:49:04 --> ATTACHMENT: Original SHA256 = 93792988f9fbfdcb8f89d7cf62af8deeeb1e787e85c30c9c9da25d5b73d1a65a
+ERROR - 2026-11-18 09:49:04 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+CRITICAL - 2026-11-18 10:12:31 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-18 10:12:32 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-11-18 11:42:36 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 11:42:36 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 11:42:36 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 11:43:36 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 11:43:36 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 11:43:36 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 12:07:28 --> pg_query(): Query failed: ERROR:  insert or update on table &quot;contract_financial_information&quot; violates foreign key constraint &quot;fk_contract_payment_evidence&quot;
+DETAIL:  Key (payment_evidence_id)=(cabff8fb-238b-4718-9c10-5ce0df81260a) is not present in table &quot;contract_attachments&quot;.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1581): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->saveFinancialInformation()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 12:07:28 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1386): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1584): App\Controllers\Api\ContractOrdersController->getFinancialInformation()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->saveFinancialInformation()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 12:07:28 --> Contract financial save failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 12:35:12 --> ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 12:35:12 --> ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 12:35:12 --> ATTACHMENT: Original first bytes = ffd8ffe000104a46
+CRITICAL - 2026-11-18 12:35:58 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: POST, Route: api/contracts/]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 419.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(419): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON()
+ 2 APPPATH\Controllers\Api\ContractOrdersController.php(151): CodeIgniter\HTTP\IncomingRequest->getJSON()
+ 3 APPPATH\Controllers\Api\ContractOrdersController.php(611): App\Controllers\Api\ContractOrdersController->requestData()
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original size = 19131
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original SHA256 = 68b3e730144d762bc3b7b0d5043a2e4c61c478ca7a504239566062e811a282b4
+ERROR - 2026-11-18 13:37:14 --> ATTACHMENT: Original first bytes = 89504e470d0a1a0a
+ERROR - 2026-11-18 14:03:04 --> pg_query(): Query failed: ERROR:  column &quot;stored_file_name&quot; of relation &quot;contract_attachments&quot; does not exist
+LINE 1: ...&quot; (&quot;contract_id&quot;, &quot;attachment_type&quot;, &quot;file_name&quot;, &quot;stored_fi...
+                                                             ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1624): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:03:04 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1640): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:03:04 --> Contract create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 14:03:58 --> pg_query(): Query failed: ERROR:  column &quot;stored_file_name&quot; of relation &quot;contract_attachments&quot; does not exist
+LINE 1: ...&quot; (&quot;contract_id&quot;, &quot;attachment_type&quot;, &quot;file_name&quot;, &quot;stored_fi...
+                                                             ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1624): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:03:58 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1640): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:03:58 --> Contract create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 14:04:59 --> pg_query(): Query failed: ERROR:  column &quot;file_path&quot; of relation &quot;contract_attachments&quot; does not exist
+LINE 1: ...ttachment_type&quot;, &quot;file_name&quot;, &quot;stored_file_name&quot;, &quot;file_path...
+                                                             ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1624): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:04:59 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1640): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:04:59 --> Contract create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 14:06:08 --> pg_query(): Query failed: ERROR:  column &quot;updated_at&quot; of relation &quot;contract_attachments&quot; does not exist
+LINE 1: ..._type&quot;, &quot;file_size&quot;, &quot;uploaded_by&quot;, &quot;created_at&quot;, &quot;updated_a...
+                                                             ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1624): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:06:08 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1640): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:06:08 --> Contract create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 14:07:00 --> pg_query(): Query failed: ERROR:  column &quot;updated_at&quot; of relation &quot;contract_attachments&quot; does not exist
+LINE 1: ..._type&quot;, &quot;file_size&quot;, &quot;uploaded_by&quot;, &quot;created_at&quot;, &quot;updated_a...
+                                                             ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1624): CodeIgniter\Database\BaseBuilder->insert()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:07:00 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1640): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(751): App\Controllers\Api\ContractOrdersController->storeContractEvidence()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:07:00 --> Contract create failed: Call to a member function getRowArray() on false
+CRITICAL - 2026-11-18 14:07:33 --> Error: Class "finfo" not found
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1510.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:07:35 --> Error: Class "finfo" not found
+[Method: GET, Route: api/contracts/attachments/724c8844-c72c-4520-9d52-7f882f88a10b]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1510.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:07:41 --> Error: Class "finfo" not found
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1510.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:07:48 --> Error: Class "finfo" not found
+[Method: GET, Route: api/contracts/attachments/36544f7e-bbf9-415c-a1e6-f43b1b9290a5]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1510.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:09:36 --> Error: Class "finfo" not found
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1510.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:21:56 --> Error: Call to undefined method App\Controllers\Api\ContractOrdersController::authenticate()
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1447.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:22:11 --> Error: Call to undefined method App\Controllers\Api\ContractOrdersController::authenticate()
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1447.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+CRITICAL - 2026-11-18 14:22:42 --> Error: Call to undefined method App\Controllers\Api\ContractOrdersController::authenticate()
+[Method: GET, Route: api/contracts/attachments/c0b4ce5c-a15a-47dc-8a76-1b79485e65cb]
+in APPPATH\Controllers\Api\ContractOrdersController.php on line 1447.
+ 1 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->viewAttachment()
+ 2 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 14:23:59 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:23:59 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:23:59 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:24:05 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:24:05 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:24:05 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:24:09 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:24:09 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:24:09 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:24:28 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:24:28 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:24:28 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:24:37 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:24:37 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:24:37 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:35:24 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:35:24 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:35:24 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:47:44 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:47:44 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:47:44 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:48:28 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:48:28 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:48:28 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 14:48:32 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 14:48:32 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 14:48:32 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 15:15:50 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 15:15:50 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 15:15:50 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 15:19:24 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 15:19:24 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 15:19:24 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 15:19:52 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 15:19:52 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 15:19:52 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 15:19:57 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 15:19:57 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 15:19:57 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 17:45:25 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 17:45:25 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 17:45:25 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 17:45:48 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 17:45:48 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 17:45:48 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 17:57:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 17:57:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 17:57:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 17:57:44 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 17:57:44 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 17:57:44 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:16:40 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:16:40 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:16:40 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:16:47 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:16:47 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:16:47 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:18:19 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:18:19 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:18:19 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:19:09 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:19:09 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:19:09 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:20:56 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:20:56 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:20:56 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:33:24 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:33:24 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:33:24 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:34:32 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:34:32 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:34:32 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:49:18 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:49:18 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:49:18 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:49:20 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:49:20 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:49:20 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:50:11 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:50:11 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:50:11 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:50:12 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:50:12 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:50:12 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:52:57 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:52:57 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:52:57 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 18:52:58 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 18:52:58 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 18:52:58 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:02:29 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:02:29 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:02:29 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:02:30 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:02:30 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:02:30 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:04:33 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:04:33 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:04:33 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:04:35 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:04:35 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:04:35 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:06:35 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:06:35 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:06:35 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:06:36 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:06:36 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:06:36 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:08:25 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:08:25 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:08:25 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:08:26 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:08:26 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:08:26 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:10:28 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:10:28 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:10:28 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:10:30 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:10:30 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:10:30 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:10:36 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:10:36 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:10:36 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:10:38 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:10:38 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:10:38 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+CRITICAL - 2026-11-18 19:23:44 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-18 19:23:44 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-18 19:23:49 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-18 19:23:49 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-11-18 19:32:11 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:32:11 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:32:11 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:32:47 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:32:47 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:32:47 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:41:18 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:41:18 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:41:18 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:41:40 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contract_orders&quot; violates check constraint &quot;contract_orders_status_check&quot;
+DETAIL:  Failing row contains (3887c70c-b05e-4fe2-b5f3-806cd0e3aecf, bc69f0ce-6565-42bd-899b-460da8b99410, 3, 00, 12.000, 4000.00, 2026-11-17, PENDING, null, null, null, null, null, null, null, 2026-11-18 19:41:40+03, 2026-11-18 19:41:40+03, 234434, 41a85011-a976-4b95-9b12-100302adfb7a).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1283): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:41:40 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(299): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1284): App\Controllers\Api\ContractOrdersController->createOrderInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:41:40 --> Contract order create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 19:42:04 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contract_orders&quot; violates check constraint &quot;contract_orders_status_check&quot;
+DETAIL:  Failing row contains (35ffebc6-888a-4828-99e5-4d8449ab926c, bc69f0ce-6565-42bd-899b-460da8b99410, 3, 00, 12.000, 4000.00, 2026-11-17, PENDING, null, null, null, null, null, null, null, 2026-11-18 19:42:04+03, 2026-11-18 19:42:04+03, 234434, 41a85011-a976-4b95-9b12-100302adfb7a).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1283): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:42:04 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(299): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1284): App\Controllers\Api\ContractOrdersController->createOrderInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:42:04 --> Contract order create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 19:42:27 --> pg_query(): Query failed: ERROR:  new row for relation &quot;contract_orders&quot; violates check constraint &quot;contract_orders_status_check&quot;
+DETAIL:  Failing row contains (f34b932b-df28-4ee6-a586-141abe89ba60, bc69f0ce-6565-42bd-899b-460da8b99410, 3, 00, 12.000, 4000.00, 2026-11-17, PENDING, null, null, null, null, null, null, null, 2026-11-18 19:42:27+03, 2026-11-18 19:42:27+03, 234434, 41a85011-a976-4b95-9b12-100302adfb7a).
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(1283): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:42:27 --> pg_query(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+in SYSTEMPATH\Database\Postgre\Connection.php on line 210.
+ 1 SYSTEMPATH\Database\BaseConnection.php(905): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH\Database\BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query()
+ 4 APPPATH\Controllers\Api\ContractOrdersController.php(299): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Api\ContractOrdersController.php(1284): App\Controllers\Api\ContractOrdersController->createOrderInvoice()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Api\ContractOrdersController->createOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\projects\\erp\\backend\\public\\index.php')
+ERROR - 2026-11-18 19:42:27 --> Contract order create failed: Call to a member function getRowArray() on false
+ERROR - 2026-11-18 19:44:18 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:44:18 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:44:18 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:44:55 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:44:55 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:44:55 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:55:56 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:55:56 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:55:56 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:56:13 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:56:13 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:56:13 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:56:26 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:56:26 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:56:26 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:56:45 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:56:45 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:56:45 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+CRITICAL - 2026-11-18 19:58:18 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-11-18 19:58:18 --> ErrorException: Cannot redeclare class App\Controllers\Api\FinanceSalesReviewController (previously declared in D:\projects\erp\backend\app\Controllers\Api\FinanceExpensesController.php:9)
+[Method: GET, Route: api/finance/expenses]
+in APPPATH\Controllers\Api\FinanceExpensesController.php on line 9.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-11-18 19:58:53 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:58:53 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:58:53 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46
+ERROR - 2026-11-18 19:59:18 --> CONTRACT ATTACHMENT: Original size = 148302
+ERROR - 2026-11-18 19:59:18 --> CONTRACT ATTACHMENT: Original SHA256 = 78c7c85ee9db9b781915fd2655b57687f3be75f997cf8bd8b890049ac4a3f7c7
+ERROR - 2026-11-18 19:59:18 --> CONTRACT ATTACHMENT: Original first bytes = ffd8ffe000104a46

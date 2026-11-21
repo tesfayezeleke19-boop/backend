@@ -136,23 +136,38 @@ $routes->group('api/sales', static function (RouteCollection $routes) {
     });
 });
 
+
 // --------------------------------------------------
 // Finance Royalty Reports API
 // --------------------------------------------------
 $routes->group('api/finance/royalty-reports', static function (RouteCollection $routes) {
 
-    $routes->get('/', 'Api\FinanceRoyaltyReportsController::index');
+    // Current eligible royalty report rows.
+    $routes->get(
+        '/',
+        'Api\FinanceRoyaltyReportsController::index'
+    );
 
+    // Completed royalty batch history.
     $routes->get(
         'batches',
         'Api\FinanceRoyaltyReportsController::batches'
     );
 
+    // Saved records belonging to one completed batch.
+    // Used by the historical Excel export.
+    $routes->get(
+        'batches/(:segment)',
+        'Api\FinanceRoyaltyReportsController::showBatch/$1'
+    );
+
+    // Manual finalization remains disabled.
     $routes->post(
         'batches',
         'Api\FinanceRoyaltyReportsController::finalizeBatch'
     );
 
+    // CORS preflight.
     $routes->options('/', static function () {
         return service('response')->setStatusCode(204);
     });
@@ -160,7 +175,12 @@ $routes->group('api/finance/royalty-reports', static function (RouteCollection $
     $routes->options('batches', static function () {
         return service('response')->setStatusCode(204);
     });
+
+    $routes->options('batches/(:segment)', static function () {
+        return service('response')->setStatusCode(204);
+    });
 });
+
 
 // --------------------------------------------------
 // Finance Expenses API
@@ -213,7 +233,16 @@ $routes->group('api/finance/expenses', static function (RouteCollection $routes)
     $routes->options('review-queue', static function () {
         return service('response')->setStatusCode(204);
     });
+    $routes->post('attachments/upload', 'Api\FinanceExpensesController::uploadAttachment');
+$routes->get('attachments/(:segment)', 'Api\FinanceExpensesController::viewAttachment/$1');
 
+$routes->options('attachments/upload', static function () {
+    return service('response')->setStatusCode(204);
+});
+
+$routes->options('attachments/(:segment)', static function () {
+    return service('response')->setStatusCode(204);
+});
     $routes->options('(:segment)', static function () {
         return service('response')->setStatusCode(204);
     });
@@ -766,28 +795,76 @@ $routes->group('api/credit-contracts', static function ($routes) {
     $routes->options('(:segment)/orders/(:segment)/cancel', static function () {
         return service('response')->setStatusCode(204);
     });
+
+    // Credit contract attachment preflight requests.
+    $routes->options('(:segment)/attachments', static function () {
+        return service('response')->setStatusCode(204);
+    });
+
+    $routes->options('(:segment)/attachments/(:segment)', static function () {
+        return service('response')->setStatusCode(204);
+    });
 });
 
+
 // Actual Credit Contract endpoints.
-// Authentication and role authorization are handled inside
-// CreditContractsController using the existing bearer session.
 $routes->group('api/credit-contracts', static function ($routes) {
 
+    // --------------------------------------------------
     // Contract list and CRUD
+    // --------------------------------------------------
+
     $routes->get('/', 'Api\CreditContractsController::index');
     $routes->post('/', 'Api\CreditContractsController::create');
 
-    $routes->get('(:segment)', 'Api\CreditContractsController::show/$1');
-    $routes->put('(:segment)', 'Api\CreditContractsController::update/$1');
+    $routes->get(
+        '(:segment)',
+        'Api\CreditContractsController::show/$1'
+    );
 
-    // Contract lifecycle
-    $routes->post('(:segment)/activate', 'Api\CreditContractsController::activate/$1');
-    $routes->post('(:segment)/cancel', 'Api\CreditContractsController::cancel/$1');
-    $routes->post('(:segment)/finalize', 'Api\CreditContractsController::finalize/$1');
+    $routes->put(
+        '(:segment)',
+        'Api\CreditContractsController::update/$1'
+    );
 
+
+   // --------------------------------------------------
+// Contract lifecycle
+// --------------------------------------------------
+
+$routes->post(
+    '(:segment)/activate',
+    'Api\CreditContractsController::activate/$1'
+);
+
+$routes->post(
+    '(:segment)/cancel',
+    'Api\CreditContractsController::cancel/$1'
+);
+
+$routes->post(
+    '(:segment)/finalize',
+    'Api\CreditContractsController::finalize/$1'
+);
+
+$routes->post(
+    '(:segment)/complete',
+    'Api\CreditContractsController::complete/$1'
+);
+
+    // --------------------------------------------------
     // Contract orders
-    $routes->get('(:segment)/orders', 'Api\CreditContractsController::orders/$1');
-    $routes->post('(:segment)/orders', 'Api\CreditContractsController::createOrder/$1');
+    // --------------------------------------------------
+
+    $routes->get(
+        '(:segment)/orders',
+        'Api\CreditContractsController::orders/$1'
+    );
+
+    $routes->post(
+        '(:segment)/orders',
+        'Api\CreditContractsController::createOrder/$1'
+    );
 
     $routes->put(
         '(:segment)/orders/(:segment)',
@@ -799,7 +876,11 @@ $routes->group('api/credit-contracts', static function ($routes) {
         'Api\CreditContractsController::cancelOrder/$1/$2'
     );
 
+
+    // --------------------------------------------------
     // Payment information
+    // --------------------------------------------------
+
     $routes->get(
         '(:segment)/payment-information',
         'Api\CreditContractsController::getPaymentInformation/$1'
@@ -815,7 +896,11 @@ $routes->group('api/credit-contracts', static function ($routes) {
         'Api\CreditContractsController::deletePaymentInformation/$1'
     );
 
+
+    // --------------------------------------------------
     // Withholding
+    // --------------------------------------------------
+
     $routes->get(
         '(:segment)/withholding',
         'Api\CreditContractsController::getWithholding/$1'
@@ -826,19 +911,55 @@ $routes->group('api/credit-contracts', static function ($routes) {
         'Api\CreditContractsController::saveWithholding/$1'
     );
 
+
+    // --------------------------------------------------
     // Financial report
+    // --------------------------------------------------
+
     $routes->get(
         '(:segment)/financial-report',
         'Api\CreditContractsController::financialReport/$1'
     );
 
-    // Final Sales Invoice
+
+    // --------------------------------------------------
+    // Sales Invoices
+    // --------------------------------------------------
+
     $routes->get(
         '(:segment)/invoice',
         'Api\CreditContractsController::invoice/$1'
     );
-});
 
+
+    // --------------------------------------------------
+    // Credit Contract Attachments
+    // --------------------------------------------------
+
+    // List contract attachments.
+    $routes->get(
+        '(:segment)/attachments',
+        'Api\CreditContractsController::indexAttachments/$1'
+    );
+
+    // Upload a contract attachment.
+    $routes->post(
+        '(:segment)/attachments',
+        'Api\CreditContractsController::uploadAttachment/$1'
+    );
+
+    // View or download an attachment.
+    $routes->get(
+        '(:segment)/attachments/(:segment)',
+        'Api\CreditContractsController::showAttachment/$1/$2'
+    );
+
+    // Delete a contract attachment.
+    $routes->delete(
+        '(:segment)/attachments/(:segment)',
+        'Api\CreditContractsController::deleteAttachment/$1/$2'
+    );
+});
 
 
 
@@ -874,21 +995,21 @@ $routes->group('api/contracts', ['namespace' => 'App\Controllers\Api'], static f
     // Contract list and CRUD
     $routes->get('/', 'ContractOrdersController::index');
     $routes->post('/', 'ContractOrdersController::create');
-    $routes->get('(:segment)', 'ContractOrdersController::show/$1');
-    $routes->put('(:segment)', 'ContractOrdersController::update/$1');
+
+    // Specific routes must come before generic (:segment) routes.
+    $routes->get('all-orders', 'ContractOrdersController::allOrders');
+
+    // Contract orders
+    $routes->get('(:segment)/orders', 'ContractOrdersController::orders/$1');
+    $routes->post('(:segment)/orders', 'ContractOrdersController::createOrder/$1');
+    $routes->put('orders/(:segment)', 'ContractOrdersController::updateOrder/$1');
+    $routes->post('orders/(:segment)/cancel', 'ContractOrdersController::cancelOrder/$1');
 
     // Contract lifecycle
     $routes->post('(:segment)/activate', 'ContractOrdersController::activate/$1');
     $routes->post('(:segment)/request-completion', 'ContractOrdersController::requestCompletion/$1');
     $routes->post('(:segment)/confirm-completion', 'ContractOrdersController::confirmCompletion/$1');
     $routes->post('(:segment)/cancel', 'ContractOrdersController::cancel/$1');
-
-    // Contract orders
-    $routes->get('all-orders', 'ContractOrdersController::allOrders');
-    $routes->get('(:segment)/orders', 'ContractOrdersController::orders/$1');
-    $routes->post('(:segment)/orders', 'ContractOrdersController::createOrder/$1');
-    $routes->put('orders/(:segment)', 'ContractOrdersController::updateOrder/$1');
-    $routes->post('orders/(:segment)/cancel', 'ContractOrdersController::cancelOrder/$1');
 
     // Progress and financial information
     $routes->get('(:segment)/progress', 'ContractOrdersController::progress/$1');
@@ -897,15 +1018,59 @@ $routes->group('api/contracts', ['namespace' => 'App\Controllers\Api'], static f
     $routes->get('(:segment)/financial-report', 'ContractOrdersController::financialReport/$1');
 
     // Contract attachments
-    $routes->post('(:segment)/attachments', 'ContractOrdersController::uploadAttachment/$1');
-    $routes->delete('(:segment)/attachments/(:segment)', 'ContractOrdersController::deleteAttachment/$1/$2');
+    $routes->post(
+        '(:segment)/attachments',
+        'ContractOrdersController::uploadAttachment/$1'
+    );
+
+    $routes->get(
+        'attachments/(:segment)',
+        'ContractOrdersController::viewAttachment/$1'
+    );
+
+    $routes->delete(
+        '(:segment)/attachments/(:segment)',
+        'ContractOrdersController::deleteAttachment/$1/$2'
+    );
 
     // Sales Invoice conversion handoff
     $routes->post('(:segment)/conversion/start', 'ContractOrdersController::startConversion/$1');
     $routes->post('(:segment)/conversion/complete', 'ContractOrdersController::markConverted/$1');
     $routes->post('(:segment)/conversion/failed', 'ContractOrdersController::conversionFailed/$1');
+
+    // Generic contract routes must remain last.
+    $routes->get('(:segment)', 'ContractOrdersController::show/$1');
+    $routes->put('(:segment)', 'ContractOrdersController::update/$1');
 });
 
 
 
-$routes->get('api/database-test', 'DatabaseTest::index');
+
+$routes->group('api/finance/reports', static function ($routes) {
+
+    // Sales report
+    $routes->get('sales', 'Api\FinanceReportController::sales');
+
+    // Expenses report
+    $routes->get('expenses', 'Api\FinanceReportController::expenses');
+
+    // Summary report
+    $routes->get(
+        'summary-report',
+        'Api\FinanceSummaryReportController::index'
+    );
+
+    // CORS preflight
+    $routes->options('sales', static function () {
+        return service('response')->setStatusCode(204);
+    });
+
+    $routes->options('expenses', static function () {
+        return service('response')->setStatusCode(204);
+    });
+
+    $routes->options('summary-report', static function () {
+        return service('response')->setStatusCode(204);
+    });
+
+});
