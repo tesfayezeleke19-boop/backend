@@ -25,24 +25,21 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-    'DSN'          => '',
-    'hostname'     => env('database.default.hostname', 'localhost'),
-    'username'     => env('database.default.username', ''),
-    'password'     => env('database.default.password', ''),
-    'database'     => env('database.default.database', ''),
-    'DBDriver'     => 'Postgre',
-    'DBPrefix'     => '',
-    'pConnect'     => false,
-    'DBDebug'      => (ENVIRONMENT !== 'production'),
-    'charset'      => 'utf8',
-    'schema'       => env('database.default.schema', 'public'),
-    'swapPre'      => '',
-    'encrypt'      => false,
-    'compress'     => false,
-    'strictOn'     => false,
-    'failover'     => [],
-    'port'         => (int) env('database.default.port', 5432),
-    'dateFormat'   => [
+    'DSN'        => '',
+    'hostname'   => 'localhost',
+    'username'   => '',
+    'password'   => '',
+    'database'   => '',
+    'DBDriver'   => 'Postgre',
+    'DBPrefix'   => '',
+    'pConnect'   => false,
+    'DBDebug' => (ENVIRONMENT !== 'production'),
+    'charset'    => 'utf8',
+    'schema'     => 'public',
+    'swapPre'    => '',
+    'failover'   => [],
+    'port'       => 5432,
+    'dateFormat' => [
         'date'     => 'Y-m-d',
         'datetime' => 'Y-m-d H:i:s',
         'time'     => 'H:i:s',
@@ -50,9 +47,7 @@ class Database extends Config
 ];
 
     //    /**
-    //     * Sample database connection for SQLite3.
-    //     *
-    //     * @var array<string, mixed>
+    //     * Sample connection for SQLite3.
     //     */
     //    public array $default = [
     //        'database'    => 'database.db',
@@ -72,9 +67,7 @@ class Database extends Config
     //    ];
 
     //    /**
-    //     * Sample database connection for Postgre.
-    //     *
-    //     * @var array<string, mixed>
+    //     * Sample connection for PostgreSQL.
     //     */
     //    public array $default = [
     //        'DSN'        => '',
@@ -99,9 +92,7 @@ class Database extends Config
     //    ];
 
     //    /**
-    //     * Sample database connection for SQLSRV.
-    //     *
-    //     * @var array<string, mixed>
+    //     * Sample connection for SQLSRV.
     //     */
     //    public array $default = [
     //        'DSN'        => '',
@@ -115,7 +106,6 @@ class Database extends Config
     //        'pConnect'   => false,
     //        'DBDebug'    => true,
     //        'charset'    => 'utf8',
-    //        'swapPre'    => '',
     //        'encrypt'    => false,
     //        'failover'   => [],
     //        'port'       => 1433,
@@ -127,15 +117,7 @@ class Database extends Config
     //    ];
 
     //    /**
-    //     * Sample database connection for OCI8.
-    //     *
-    //     * You may need the following environment variables:
-    //     *   NLS_LANG                = 'AMERICAN_AMERICA.UTF8'
-    //     *   NLS_DATE_FORMAT         = 'YYYY-MM-DD HH24:MI:SS'
-    //     *   NLS_TIMESTAMP_FORMAT    = 'YYYY-MM-DD HH24:MI:SS'
-    //     *   NLS_TIMESTAMP_TZ_FORMAT = 'YYYY-MM-DD HH24:MI:SS'
-    //     *
-    //     * @var array<string, mixed>
+    //     * Sample connection for OCI8.
     //     */
     //    public array $default = [
     //        'DSN'        => 'localhost:1521/FREEPDB1',
@@ -146,7 +128,6 @@ class Database extends Config
     //        'pConnect'   => false,
     //        'DBDebug'    => true,
     //        'charset'    => 'AL32UTF8',
-    //        'swapPre'    => '',
     //        'failover'   => [],
     //        'dateFormat' => [
     //            'date'     => 'Y-m-d',
@@ -167,7 +148,7 @@ class Database extends Config
         'password'    => '',
         'database'    => ':memory:',
         'DBDriver'    => 'SQLite3',
-        'DBPrefix'    => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+        'DBPrefix'    => 'db_',
         'pConnect'    => false,
         'DBDebug'     => true,
         'charset'     => 'utf8',
@@ -189,14 +170,17 @@ class Database extends Config
     ];
 
     public function __construct()
-    {
-        parent::__construct();
+{
+    parent::__construct();
 
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
+    $this->default['hostname'] = env('DB_HOST', 'localhost');
+    $this->default['username'] = env('DB_USERNAME', '');
+    $this->default['password'] = env('DB_PASSWORD', '');
+    $this->default['database'] = env('DB_DATABASE', '');
+    $this->default['port'] = (int) env('DB_PORT', 5432);
+
+    if (ENVIRONMENT === 'testing') {
+        $this->defaultGroup = 'tests';
     }
+}
 }
