@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Controllers;
@@ -10,21 +11,26 @@ class DatabaseTest extends Controller
     public function index()
     {
         try {
+            // 1. Check PostgreSQL PHP extension
             if (!extension_loaded('pgsql')) {
                 throw new \RuntimeException(
                     'PHP PostgreSQL extension is not installed.'
                 );
             }
 
+            // 2. Connect to the configured database
             $db = Database::connect();
 
+            // 3. Execute a test query
             $result = $db->query(
-                'SELECT current_database() AS database_name,
-                        current_user AS database_user,
-                        NOW() AS server_time'
+                'SELECT
+                    current_database() AS database_name,
+                    current_user AS database_user,
+                    NOW() AS server_time'
             )->getRowArray();
 
-            return $this->response->setJSON([
+            // 4. Return successful connection response
+            return $this->response->setStatusCode(200)->setJSON([
                 'success' => true,
                 'message' => 'PostgreSQL connection successful!',
                 'pgsql_extension' => true,
@@ -34,12 +40,23 @@ class DatabaseTest extends Controller
             ]);
 
         } catch (\Throwable $e) {
-            log_message('error', 'Database test failed: ' . $e->getMessage());
 
-            return $this->response->setStatusCode(500)->setJSON([
-                'success' => false,
-                'message' => 'Database connection failed.',
-            ]);
+            // 5. Log the actual error
+            log_message(
+                'error',
+                'Database test failed: {message}',
+                ['message' => $e->getMessage()]
+            );
+
+            // 6. Return diagnostic information temporarily
+            return $this->response
+                ->setStatusCode(500)
+                ->setJSON([
+                    'success' => false,
+                    'message' => 'Database connection failed.',
+                    'error_type' => get_class($e),
+                    'error' => $e->getMessage(),
+                ]);
         }
     }
 }
